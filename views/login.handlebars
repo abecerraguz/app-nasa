@@ -1,0 +1,75 @@
+{{> partials/navbar }}
+
+<div class="container">
+    <div class="row">
+
+   
+    <div class="row">
+      <form autocomplete="off">
+        <h2 class="mt-2 text-center">👽 Bienvenido a LA NASA 👽</h2>
+        <hr>
+         <p class="mt-3">{{> partials/title}}</p>
+        <div class="mb-4">
+            <input type="email" class="formInput" id="email" placeholder="Ingrese Email">
+        </div>
+        <div class="mb-4">
+            <input type="password" class="formInput" id="password" placeholder="Ingrese Password">
+        </div>
+        <div class="mb-3">
+            <button id="ingresar" class="btn btn-success m-auto text-uppercase">Ingresar</button>
+        </div>
+      </form>
+
+
+        <!-- Modal Mensaje -->
+        <div class="modal fade" id="mensajeLogin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-body text-center text-uppercase my-2">
+                <span id="mensaje">Autenticado con éxito! Serás redirigido a Evidencias para que cargues tus fotos, Tu token está en SessionStorage!!</span>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+<script>
+   let ingresar = document.querySelector("#ingresar");
+
+   ingresar.addEventListener('click',(e)=>{
+        e.preventDefault();
+        verificacion();
+   })
+
+   const verificacion = ()=>{
+
+        let email = document.querySelector("#email").value
+        let password = document.querySelector("#password").value
+
+        axios.post('/verify',{
+            email,
+            password
+        }).then( result =>{
+            const token = result.data
+            $('#mensajeLogin').modal('toggle');
+            sessionStorage.setItem('token', JSON.stringify(token) )
+            setTimeout(()=>{
+              $('#mensajeLogin').modal('toggle'); 
+              window.location.href = `/evidencias?token=${token}`
+            },3000)
+        })
+        .catch( ({response}) =>{
+            
+            console.log( 'Salida de response-->', response )
+            $('#mensajeLogin').modal('toggle');
+            $('#mensaje').html(`${response.data.error}`)
+
+            setTimeout(()=>{
+              $('#mensajeLogin').modal('toggle'); 
+            },3000)
+                
+        })        
+
+   }
+   
+</script>

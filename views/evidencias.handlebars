@@ -1,0 +1,23 @@
+{{> partials/navbar }}
+
+<div class="container">
+    <div class="row">
+
+   
+    <div class="row">
+      <form action="/upload" method="POST" enctype="multipart/form-data">
+        <h2 class="mt-2 text-center">👽 Bienvenid@ a LA NASA 👽 {{nombre}}</h2>
+        <hr>
+         <p class="mt-3">{{> partials/title}}</p>
+
+         <div class="d-grid gap-2">
+            <input id="foto" type="file" name="foto" class="subirImagen"/>
+            <input type="submit" value="!Subir Imagen!" class="subirImagen"/>
+         </div>
+   
+      </form>
+    </div>
+    </div>
+</div>
+
+
