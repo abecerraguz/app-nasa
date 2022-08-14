@@ -3,7 +3,8 @@ const { Pool } = pg;
 
 const pool = new Pool({
     // Conección para produccion pero para local o Local
-    connectionString:process.env.DATABASE_URL ||  'postgresql://postgres:postgres@localhost:5432/bikeshop'
+    connectionString:process.env.DATABASE_URL,
+    ssl:true
 
 });
 
