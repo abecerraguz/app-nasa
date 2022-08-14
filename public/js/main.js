@@ -2,7 +2,7 @@ const enviar = document.querySelector('#enviar');
 const category_id = document.querySelector('#category_id');
 const store_id = document.querySelector('#store_id');
 const reset = document.querySelector('#reset');
-const loading = document.querySelector('#contentSpinnerLoading');
+const loading = document.querySelector('.contentSpinnerLoading');
 
 const infoProducto = (e)=>{
     console.log('Salida de e', e)
