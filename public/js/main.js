@@ -3,6 +3,7 @@ const category_id = document.querySelector('#category_id');
 const store_id = document.querySelector('#store_id');
 const reset = document.querySelector('#reset');
 const loading = document.querySelector('.contentSpinnerLoading');
+loading.style.display = "none";
 
 const infoProducto = (e)=>{
     console.log('Salida de e', e)
@@ -13,23 +14,23 @@ const infoProducto = (e)=>{
 }
 
 const pintarTable = async()=>{
-   
+    loading.style.display = "flex";
     await axios.get('https://app-shopbikes.herokuapp.com/ordenes')
-    .then( result => {
-        const info = result.data
-        console.log('Salida de info', info)
-        info.forEach(element =>{
-            infoTable.innerHTML+=`
-            <tr>
-            <td>${element.store_name}</td>
-            <td>${element.product_id}</td>
-            <td>${element.product_name}</td>
-            <td>${element.quantity}</td>
-            <td><button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick="infoProducto(this)">Ver</button></td>
-        </tr>`
+        .then( result => {
+            const info = result.data
+            console.log('Salida de info', info)
+            info.forEach(element =>{
+                infoTable.innerHTML+=`
+                <tr>
+                <td>${element.store_name}</td>
+                <td>${element.product_id}</td>
+                <td>${element.product_name}</td>
+                <td>${element.quantity}</td>
+                <td><button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick="infoProducto(this)">Ver</button></td>
+            </tr>`
+            })
+            loading.style.display = "none";
         })
-        loading.style.display = "none";
-    })
 }
 
 
