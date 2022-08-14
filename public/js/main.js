@@ -15,11 +15,9 @@ const infoProducto = async(e)=>{
             const info = result.data
             const buscado = info.find(element => element.product_id == id)
             modalBody.innerHTML=``
-            modalBody.innerHTML=`<p>En la tienda ${buscado.store_name} el producto ${buscado.product_name} tiene un stock de ${buscado.quantity} bicicletas</p>`
+            modalBody.innerHTML=`<p>En la tienda <span class="text-uppercase color-danger">${buscado.store_name}</span> el producto <span class="text-uppercase color-danger">${buscado.product_name}</span> tiene un stock de <span class="text-uppercase color-danger">${buscado.quantity} bicicletas</span></p>`
         })
     console.log(id)
-   
-
 }
 
 const pintarTable = async()=>{
