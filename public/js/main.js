@@ -13,7 +13,7 @@ const infoProducto = (e)=>{
 }
 
 const pintarTable = async()=>{
-    loading.style.display = "flex";
+   
     await axios.get('https://app-shopbikes.herokuapp.com/ordenes')
     .then( result => {
         const info = result.data
@@ -28,12 +28,12 @@ const pintarTable = async()=>{
             <td><button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick="infoProducto(this)">Ver</button></td>
         </tr>`
         })
-        loading.style.display = "none";
+        
     })
 }
 
 
-enviar.addEventListener('click',(e)=>{
+enviar.addEventListener('click', async(e)=>{
 
     e.preventDefault()
   
@@ -42,9 +42,9 @@ enviar.addEventListener('click',(e)=>{
     const brand_name = document.querySelector('#brand_name').value
     const infoTable = document.querySelector('#infoTable')
 
+    loading.style.display = "flex";
 
-
-    axios.post('https://app-shopbikes.herokuapp.com/ordenes',{
+    await axios.post('https://app-shopbikes.herokuapp.com/ordenes',{
         category_id,
         store_id,
         brand_name
@@ -64,7 +64,7 @@ enviar.addEventListener('click',(e)=>{
                 <td><button type="button" class="btn btn-danger btn-sm" onclick="infoProducto('${element.product_id}')">Ver</button></td>
             </tr>`
             })
-    
+            loading.style.display = "none";
             console.log('Salida de infooooo',info)
             $('#mensajeLogin').modal('toggle');
             setTimeout(()=>{
@@ -72,6 +72,7 @@ enviar.addEventListener('click',(e)=>{
             //   window.location.href = `/evidencias?token=${token}`
             },3000)
         }else{
+            loading.style.display = "none";
             infoTable.innerHTML=`<tr> 
                 <td colspan="5">
                     <h5 class="text-center my-5">Lo sentimos la orden que esta buscando no existe!!</h5>
