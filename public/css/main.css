@@ -28,11 +28,55 @@ body{
     box-shadow: 0px 0px 14px rgb(0 0 0 / 67%);
 }
 
+.formulario{
+    background: #352d4cb3;
+    padding: 1rem 0;
+    border-radius:0.5rem;
+    max-width: 100%;
+    margin: 1rem auto;
+    box-shadow: 0px 0px 14px rgb(0 0 0 / 67%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#category_id, #store_id, #brand_name{
+    background: purple;
+    border-top: none;
+    border-bottom: none;
+    border-left: 10px solid purple;
+    border-right: 10px solid purple;
+    border-radius: 0.3rem;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+    color: #fff;
+    width:25%;
+    margin: 0 0.5rem;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+#enviar,#reset{
+    background: purple;
+    border-top: none;
+    border-bottom: none;
+    border-left: 10px solid purple;
+    border-right: 10px solid purple;
+    border-radius: 0.3rem;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+    color: #fff;
+    width:calc(25% / 2);
+    margin: 0 0.5rem;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
 .row .contenedor{
     background: #221c35;
-    padding: 2rem 2.5rem;
+    padding: 2rem 1rem;
     border-radius: 1rem;
-    max-width: 80%;
+    max-width: 100%;
     margin: 6rem auto;
     box-shadow: 0px 0px 14px rgb(0 0 0 / 67%);
 }
@@ -92,7 +136,7 @@ input:focus{
   }
 
 
-  .subirImagen {
+.subirImagen {
     display: block;
     margin: 0.5rem 0;
     background:#1b8654;
@@ -103,3 +147,6 @@ input:focus{
     color: white;
     letter-spacing: 1px;
 }
+
+
+
