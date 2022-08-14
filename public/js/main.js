@@ -1,7 +1,8 @@
 const enviar = document.querySelector('#enviar');
 const category_id = document.querySelector('#category_id');
 const store_id = document.querySelector('#store_id');
-const reset = document.querySelector('#reset')
+const reset = document.querySelector('#reset');
+const loading = document.querySelector('#contentSpinnerLoading');
 
 const infoProducto = (e)=>{
     console.log('Salida de e', e)
@@ -12,7 +13,7 @@ const infoProducto = (e)=>{
 }
 
 const pintarTable = async()=>{
-
+    loading.style.display = "flex";
     await axios.get('https://app-shopbikes.herokuapp.com/ordenes')
     .then( result => {
         const info = result.data
@@ -27,6 +28,7 @@ const pintarTable = async()=>{
             <td><button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick="infoProducto(this)">Ver</button></td>
         </tr>`
         })
+        loading.style.display = "none";
     })
 }
 
