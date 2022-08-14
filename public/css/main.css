@@ -176,7 +176,7 @@ input:focus{
 .btn-sm{
     width: 100%;
 }
-#mensajesModal.modal-header{
+.modal-header{
     border-bottom: 1px solid rgba(255,255,255,0.3)!important;
 }
 
