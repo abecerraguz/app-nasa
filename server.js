@@ -49,7 +49,43 @@ const HATEOASV1 = async() =>{
     return salida  
 }
 
+// Ruta raiz
+app.get('/', async(req,res)=>{
+    res.render("admin",{
+        layout:"main",
+        title:"Sistema de ordenes",
+    })
+})
 
+// Ruta que recibe los criterios del form
+app.post('/ordenes', async(req,res)=>{
+    const { category_id, store_id , brand_name } = req.body
+    console.log('Salida de req.body-->', category_id, store_id , brand_name )
+    const ordenes = await getOrdenes( category_id, store_id , brand_name );
+    res.send(ordenes)
+})
+
+app.get('/ordenes', async(req,res)=>{
+    const { category_id, store_id , brand_name } = req.body
+    const ordenes = await getOrdenes( category_id, store_id , brand_name );
+    res.send(ordenes)
+})
+
+// Ruta que obtiene los usuarios desde la base de datos
+app.get('/categorias', async(req,res)=>{
+    const categorias = await getCategorias();
+    res.send(categorias)
+})
+
+app.get('/tiendas', async(req,res)=>{
+    const tiendas = await getTiendas();
+    res.send(tiendas)
+})
+
+app.get('/marcas', async(req,res)=>{
+    const marcas = await getMarcas();
+    res.send(marcas)
+})
 
 app.get('/stores', async(req,res)=>{
     const stores = await getStores();
