@@ -8,6 +8,8 @@ const pool = new Pool({
 
 });
 
+console.log('Salida de pool', pool)
+
 export const getStores = async() => {
 
     const result = await pool.query(
