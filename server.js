@@ -53,7 +53,7 @@ const HATEOASV1 = async() =>{
 app.get('/', async(req,res)=>{
     res.render("admin",{
         layout:"main",
-        title:"Busqueda de una orden",
+        title:"Búsqueda de una orden",
     })
 })
 

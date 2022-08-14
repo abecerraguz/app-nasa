@@ -98,9 +98,8 @@ body{
 }
 
 .modal-content{
-
     /* background-color:  #b56c00; */
-    background-color:  #2d6b07;
+    background-color:#221c35;
    
 }
 
@@ -174,9 +173,11 @@ input:focus{
       animation: spin 1.2s linear infinite;
   }
 
-  .btn-sm{
+.btn-sm{
     width: 100%;
-  }
-
+}
+#mensajesModal.modal-header{
+    border-bottom: 1px solid rgba(255,255,255,0.3)!important;
+}
 
 

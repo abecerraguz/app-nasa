@@ -4,13 +4,22 @@ const store_id = document.querySelector('#store_id');
 const reset = document.querySelector('#reset');
 const loading = document.querySelector('.contentSpinnerLoading');
 loading.style.display = "none";
+const modalBody = document.querySelector('.modal-body')
 
-const infoProducto = (e)=>{
+const infoProducto = async(e)=>{
     console.log('Salida de e', e)
     const id = e.id
+    await axios.get('https://app-shopbikes.herokuapp.com/ordenes')
+        .then(result =>{
+            $('#mensajesModal').modal('toggle')
+            const info = result.data
+            const buscado = info.find(element => element.product_id == id)
+            modalBody.innerHTML=``
+            modalBody.innerHTML=`<p>En la tienda ${buscado.store_name} el producto ${buscado.product_name} tiene un stock de ${buscado.quantity} bicicletas</p>`
+        })
     console.log(id)
-    $('#mensajesModal').modal('toggle')
-    $('#mensajeLogin').modal('toggle'); 
+   
+
 }
 
 const pintarTable = async()=>{
