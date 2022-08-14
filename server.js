@@ -55,6 +55,7 @@ app.get('/',(req,res)=>{
 
 app.get('/stores', async(req,res)=>{
     const stores = await getStores();
+    console.log('Salida de stores-->', stores)
     res.send(stores)
 })
 
