@@ -28,7 +28,7 @@ const pintarTable = async()=>{
             <td><button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick="infoProducto(this)">Ver</button></td>
         </tr>`
         })
-        
+        loading.style.display = "none";
     })
 }
 
