@@ -45,13 +45,11 @@ app.set("view engine","handlebars");
 
 
 const HATEOASV1 = async() =>{
-    const salida = await axios.get(`http://localhost:3000/stores`)
+    const salida = await axios.get(`https://app-shopbikes.herokuapp.com/stores`)
     return salida  
 }
 
-app.get('/',(req,res)=>{
-    res.send('<h1>Hola Mundo</h1>')
-})
+
 
 app.get('/stores', async(req,res)=>{
     const stores = await getStores();
@@ -66,7 +64,7 @@ app.get('/api/v1/stores',(req,res)=>{
             const dataFiltrada = rest.map(element => {
                 return {
                     store_name:element.store_name,
-                    src:`http://localhost:3000/api/v1/store/${element.store_id}`,
+                    src:`https://app-shopbikes.herokuapp.com/api/v1/store/${element.store_id}`,
                 }
             })
             
