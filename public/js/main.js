@@ -13,7 +13,7 @@ const infoProducto = (e)=>{
 
 const pintarTable = async()=>{
 
-    await axios.get('http://localhost:3000/ordenes')
+    await axios.get('https://app-shopbikes.herokuapp.com/ordenes')
     .then( result => {
         const info = result.data
         console.log('Salida de info', info)
@@ -42,7 +42,7 @@ enviar.addEventListener('click',(e)=>{
 
 
 
-    axios.post('http://localhost:3000/ordenes',{
+    axios.post('https://app-shopbikes.herokuapp.com/ordenes',{
         category_id,
         store_id,
         brand_name
@@ -82,7 +82,7 @@ enviar.addEventListener('click',(e)=>{
 
 
 // Insert option de categoria 
-axios.get('http://localhost:3000/categorias')
+axios.get('https://app-shopbikes.herokuapp.com/categorias')
     .then( result =>{
         const categorias = result.data
         console.log('Salida de categorias',categorias)
@@ -92,7 +92,7 @@ axios.get('http://localhost:3000/categorias')
 })
 
 // Insert option tiendas
-axios.get('http://localhost:3000/tiendas')
+axios.get('https://app-shopbikes.herokuapp.com/tiendas')
     .then( result =>{
         const tiendas = result.data
         tiendas.forEach( element => {
@@ -101,7 +101,7 @@ axios.get('http://localhost:3000/tiendas')
 })
 
 // Insert option marcas
-axios.get('http://localhost:3000/marcas')
+axios.get('https://app-shopbikes.herokuapp.com/marcas')
     .then( result =>{
         const marcas = result.data
         marcas.forEach( element => {
@@ -111,7 +111,7 @@ axios.get('http://localhost:3000/marcas')
 
 reset.addEventListener('click',(e)=>{
     e.preventDefault();
-    window.location.href = `http://localhost:3000/`
+    window.location.href = `https://app-shopbikes.herokuapp.com`
 })
 
 pintarTable()
