@@ -49,6 +49,10 @@ const HATEOASV1 = async() =>{
     return salida  
 }
 
+app.get('/',(req,res)=>{
+    res.send('<h1>Hola Mundo</h1>')
+})
+
 app.get('/stores', async(req,res)=>{
     const stores = await getStores();
     res.send(stores)
