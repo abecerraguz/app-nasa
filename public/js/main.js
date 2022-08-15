@@ -6,15 +6,21 @@ const loading = document.querySelector('.contentSpinnerLoading');
 loading.style.display = "none";
 const modalBody = document.querySelector('.modal-body')
 
+const filtrarData = (data)=>{
+    return data
+}
+
+
 const infoProducto = async(e)=>{
     const id = e.id
+
     await axios.get('https://app-shopbikes.herokuapp.com/allordenes')
         .then(result =>{
             $('#mensajesModal').modal('toggle')
             console.log('Maldito info--->', result)
             const info = result.data
             console.log('Salidaaa->',info)
-            const buscado = info.find(element => element.product_id == id)
+            const buscado = info.filter(element => element.product_id == id)
             console.log('buscado--->',buscado)
             // modalBody.innerHTML=``
             // modalBody.innerHTML=`<p>En la tienda <span class="text-uppercase text-danger">${buscado.store_name}</span> el producto <span class="text-uppercase text-danger">${buscado.product_name}</span> tiene un stock de <span class="text-uppercase text-danger">${buscado.quantity} bicicletas</span></p>`
@@ -75,7 +81,7 @@ enviar.addEventListener('click', async(e)=>{
             </tr>`
             })
             loading.style.display = "none";
-
+            filtrarData(info)
             
             console.log('Salida de infooooo',info)
 
