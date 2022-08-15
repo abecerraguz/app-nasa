@@ -17,11 +17,11 @@ const infoProducto = (store_name,product_id,product_name,quantity)=>{
 
 const replaced = (str)=>{
     if((/'/g.test(str))){
-        const replaced = str.replace(/'/g,`&apos;`);
+        const replaced = str.replace(/'/g,``);
         return replaced
     }
     if((/"/g.test(str))){
-        const replaced = str.replace(/"/g ,`&quot;`);
+        const replaced = str.replace(/"/g ,``);
         return replaced
     }    
 }
