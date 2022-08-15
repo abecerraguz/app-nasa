@@ -25,7 +25,7 @@ const replaced = (str)=>{
         return replaced
     }
     if((/\\"/i.test(str))){
-        const replaced = str.replace(/\\"/i ,`\'`);
+        const replaced = str.replace(/\\"/i ,``);
         return replaced
     }    
 }
