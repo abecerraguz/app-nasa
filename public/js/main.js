@@ -24,10 +24,10 @@ const replaced = (str)=>{
         const replaced = str.replace(/"/g ,``);
         return replaced
     }
-    if((/\\"/i.test(str))){
-        const replaced = str.replace(/\\"/i ,``);
-        return replaced
-    }    
+    // if((/\\"/i.test(str))){
+    //     const replaced = str.replace(/\\"/i ,``);
+    //     return replaced
+    // }    
 }
 
 const pintarTable = async()=>{
