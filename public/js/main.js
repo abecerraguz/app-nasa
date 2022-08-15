@@ -8,17 +8,14 @@ const modalBody = document.querySelector('.modal-body')
 const infoTienda = document.querySelector('.infoTienda')
 
 
-const infoProducto = async(e)=>{
-    const id = e.id
-    await axios.get('https://app-shopbikes.herokuapp.com/ordenes')
-        .then(result =>{
+const infoProducto = (store_name,product_id,product_name,quantity)=>{
             $('#mensajesModal').modal('toggle')
-            const info = result.data
-            const buscado = info.find( element => element.product_id == id)
+            // const info = result.data
+            // const buscado = info.find( element => element.product_id == id)
             modalBody.innerHTML=``
-            modalBody.innerHTML=`<p>En la tienda <span class="text-uppercase text-danger">${buscado.store_name}</span> el producto <span class="text-uppercase text-danger">${buscado.product_name}</span> tiene un stock de <span class="text-uppercase text-danger">${buscado.quantity} bicicletas</span></p>`;
-            infoTienda.innerHTML=`<h5 class="my-0">Tienda ${buscado.store_name}</h5>`
-        })
+            modalBody.innerHTML=`<p>En la tienda <span class="text-uppercase text-danger">${store_name}</span> el producto <span class="text-uppercase text-danger">${product_name}</span> tiene un stock de <span class="text-uppercase text-danger">${quantity} bicicletas</span></p>`;
+            infoTienda.innerHTML=`<h5 class="my-0">Tienda ${store_name}</h5>`
+        
 }
 
 const pintarTable = async()=>{
@@ -78,7 +75,7 @@ enviar.addEventListener('click', async(e)=>{
                 <td>${element.product_name}</td>
                 <td>${element.quantity}</td>
                 <td>
-                <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick="infoProducto(this)">
+                <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick="infoProducto('${element.store_name}','${element.product_id}','${element.product_name}','${element.quantity}')">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-zoom-in" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
                     <path d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z"/>
