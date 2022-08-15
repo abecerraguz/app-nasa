@@ -13,7 +13,7 @@ const filtrarData = (data)=>{
 
 const infoProducto = async(e)=>{
     const id = e.id
-
+    console.log('SalidaaaZ->',id)
     await axios.get('https://app-shopbikes.herokuapp.com/allordenes')
         .then(result =>{
             $('#mensajesModal').modal('toggle')
