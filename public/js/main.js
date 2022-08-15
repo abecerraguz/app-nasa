@@ -5,10 +5,7 @@ const reset = document.querySelector('#reset');
 const loading = document.querySelector('.contentSpinnerLoading');
 loading.style.display = "none";
 const modalBody = document.querySelector('.modal-body')
-
-const filtrarData = (data)=>{
-    return data
-}
+const modalHeader = document.querySelector('.modal-header')
 
 
 const infoProducto = async(e)=>{
@@ -19,7 +16,8 @@ const infoProducto = async(e)=>{
             const info = result.data
             const buscado = info.find( element => element.product_id == id)
             modalBody.innerHTML=``
-            modalBody.innerHTML=`<p>En la tienda <span class="text-uppercase text-danger">${buscado.store_name}</span> el producto <span class="text-uppercase text-danger">${buscado.product_name}</span> tiene un stock de <span class="text-uppercase text-danger">${buscado.quantity} bicicletas</span></p>`
+            modalBody.innerHTML=`<p>En la tienda <span class="text-uppercase text-danger">${buscado.store_name}</span> el producto <span class="text-uppercase text-danger">${buscado.product_name}</span> tiene un stock de <span class="text-uppercase text-danger">${buscado.quantity} bicicletas</span></p>`;
+            modalHeader.innerHTML=`<h5>Tienda ${buscado.store_name}</h5>`
         })
 }
 
