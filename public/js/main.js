@@ -10,7 +10,7 @@ const infoTienda = document.querySelector('.infoTienda')
 
 const infoProducto = async(e)=>{
     const id = e.id
-    await axios.get('https://app-shopbikes.herokuapp.com/allordenes')
+    await axios.get('https://app-shopbikes.herokuapp.com/ordenes')
         .then(result =>{
             $('#mensajesModal').modal('toggle')
             const info = result.data
