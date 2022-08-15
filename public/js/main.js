@@ -13,10 +13,11 @@ const infoProducto = async(e)=>{
             $('#mensajesModal').modal('toggle')
             console.log('Maldito info--->', result)
             const info = result.data
+            console.log('Salidaaa->',info)
             
-            const buscado = info.find(element => element.product_id == id)
-            modalBody.innerHTML=``
-            modalBody.innerHTML=`<p>En la tienda <span class="text-uppercase text-danger">${buscado.store_name}</span> el producto <span class="text-uppercase text-danger">${buscado.product_name}</span> tiene un stock de <span class="text-uppercase text-danger">${buscado.quantity} bicicletas</span></p>`
+            // const buscado = info.find(element => element.product_id == id)
+            // modalBody.innerHTML=``
+            // modalBody.innerHTML=`<p>En la tienda <span class="text-uppercase text-danger">${buscado.store_name}</span> el producto <span class="text-uppercase text-danger">${buscado.product_name}</span> tiene un stock de <span class="text-uppercase text-danger">${buscado.quantity} bicicletas</span></p>`
         })
     console.log(id)
 }
