@@ -13,7 +13,6 @@ const filtrarData = (data)=>{
 
 const infoProducto = async(e)=>{
     const id = e.id
-    console.log('SalidaaaZ->',id)
     await axios.get('https://app-shopbikes.herokuapp.com/allordenes')
         .then(result =>{
             $('#mensajesModal').modal('toggle')
@@ -22,7 +21,6 @@ const infoProducto = async(e)=>{
             modalBody.innerHTML=``
             modalBody.innerHTML=`<p>En la tienda <span class="text-uppercase text-danger">${buscado.store_name}</span> el producto <span class="text-uppercase text-danger">${buscado.product_name}</span> tiene un stock de <span class="text-uppercase text-danger">${buscado.quantity} bicicletas</span></p>`
         })
-    console.log(id)
 }
 
 const pintarTable = async()=>{
@@ -30,7 +28,6 @@ const pintarTable = async()=>{
     await axios.get('https://app-shopbikes.herokuapp.com/ordenes')
         .then( result => {
             const info = result.data
-            console.log('Salida de info', info)
             info.forEach(element =>{
                 infoTable.innerHTML+=`
                 <tr>
@@ -38,7 +35,15 @@ const pintarTable = async()=>{
                 <td>${element.product_id}</td>
                 <td>${element.product_name}</td>
                 <td>${element.quantity}</td>
-                <td><button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick="infoProducto(this)">Ver</button></td>
+                <td>
+                <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick="infoProducto(this)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-zoom-in" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                    <path d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z"/>
+                    <path fill-rule="evenodd" d="M6.5 3a.5.5 0 0 1 .5.5V6h2.5a.5.5 0 0 1 0 1H7v2.5a.5.5 0 0 1-1 0V7H3.5a.5.5 0 0 1 0-1H6V3.5a.5.5 0 0 1 .5-.5z"/>
+                    </svg>
+                </button>
+                </td>
             </tr>`
             })
             loading.style.display = "none";
@@ -74,17 +79,19 @@ enviar.addEventListener('click', async(e)=>{
                 <td>${element.product_id}</td>
                 <td>${element.product_name}</td>
                 <td>${element.quantity}</td>
-                <td><button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick="infoProducto(this)">Ver</button></td>
+                <td>
+                <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick="infoProducto(this)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-zoom-in" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                    <path d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z"/>
+                    <path fill-rule="evenodd" d="M6.5 3a.5.5 0 0 1 .5.5V6h2.5a.5.5 0 0 1 0 1H7v2.5a.5.5 0 0 1-1 0V7H3.5a.5.5 0 0 1 0-1H6V3.5a.5.5 0 0 1 .5-.5z"/>
+                    </svg>
+                </button>
+                </td>
             </tr>`
             })
             loading.style.display = "none";
-            filtrarData(info)
-            
-            console.log('Salida de infooooo',info)
-
-
-
-
+         
             $('#mensajeLogin').modal('toggle');
             setTimeout(()=>{
               $('#mensajeLogin').modal('toggle'); 
@@ -107,7 +114,6 @@ enviar.addEventListener('click', async(e)=>{
 axios.get('https://app-shopbikes.herokuapp.com/categorias')
     .then( result =>{
         const categorias = result.data
-        console.log('Salida de categorias',categorias)
         categorias.forEach( element => {
             category_id.innerHTML+= `<option value="${element.category_id}">${element.category_name}</option>`
         });
