@@ -24,7 +24,7 @@ const pintarTable = async()=>{
         .then( result => {
             const info = result.data
             info.forEach(element =>{
-                const str = element.store_name
+                const str = element.product_name
                 const replaced = str.replace(/'/g, ``);
                 infoTable.innerHTML+=`
                 <tr>
@@ -70,7 +70,7 @@ enviar.addEventListener('click', async(e)=>{
         if(info.length != 0){
             infoTable.innerHTML=``
             info.forEach(element =>{
-                const str = element.store_name
+                const str = element.product_name
                 const replaced = str.replace(/'/g, ``);
                 infoTable.innerHTML+=`
                 <tr>
