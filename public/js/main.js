@@ -11,8 +11,9 @@ const infoProducto = async(e)=>{
     await axios.get('https://app-shopbikes.herokuapp.com/allordenes')
         .then(result =>{
             $('#mensajesModal').modal('toggle')
+            console.log('Maldito info--->', result)
             const info = result.data
-            console.log('Maldito info--->', info)
+            
             const buscado = info.find(element => element.product_id == id)
             modalBody.innerHTML=``
             modalBody.innerHTML=`<p>En la tienda <span class="text-uppercase text-danger">${buscado.store_name}</span> el producto <span class="text-uppercase text-danger">${buscado.product_name}</span> tiene un stock de <span class="text-uppercase text-danger">${buscado.quantity} bicicletas</span></p>`
