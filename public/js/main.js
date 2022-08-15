@@ -6,7 +6,22 @@ const loading = document.querySelector('.contentSpinnerLoading');
 loading.style.display = "none";
 const modalBody = document.querySelector('.modal-body')
 
+const infoProducto = async(e)=>{
 
+    console.log('Salida de e', e)
+    console.log('Info--->',info)
+    const id = e.id
+    await axios.get('https://app-shopbikes.herokuapp.com/allordenes')
+        .then(result =>{
+            $('#mensajesModal').modal('toggle')
+            const info = result.data
+            const buscado = info.find(element => element.product_id == id)
+            console.log('Salida de buscando--->', buscado )
+            modalBody.innerHTML=``
+            modalBody.innerHTML=`<p>En la tienda <span class="text-uppercase text-danger">${buscado.store_name}</span> el producto <span class="text-uppercase text-danger">${buscado.product_name}</span> tiene un stock de <span class="text-uppercase text-danger">${buscado.quantity} bicicletas</span></p>`
+        })
+    console.log(id)
+}
 
 const pintarTable = async()=>{
     loading.style.display = "flex";
@@ -62,22 +77,6 @@ enviar.addEventListener('click', async(e)=>{
             })
             loading.style.display = "none";
 
-            const infoProducto = async(e,info)=>{
-
-                console.log('Salida de e', e)
-                console.log('Info--->',info)
-                const id = e.id
-                await axios.get('https://app-shopbikes.herokuapp.com/ordenes')
-                    .then(result =>{
-                        $('#mensajesModal').modal('toggle')
-                        const info = result.data
-                        const buscado = info.find(element => element.product_id == id)
-                        console.log('Salida de buscando--->', buscado )
-                        modalBody.innerHTML=``
-                        modalBody.innerHTML=`<p>En la tienda <span class="text-uppercase text-danger">${buscado.store_name}</span> el producto <span class="text-uppercase text-danger">${buscado.product_name}</span> tiene un stock de <span class="text-uppercase text-danger">${buscado.quantity} bicicletas</span></p>`
-                    })
-                console.log(id)
-            }
             
             console.log('Salida de infooooo',info)
 

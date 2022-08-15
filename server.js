@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url'
 import { dirname } from "path";
 import bodyParser from 'body-parser';
 // import expressFileUpload from 'express-fileupload';
-import { getOrdenes, getCategorias, getTiendas, getMarcas,getProductos, getStores } from './consultas.js'
+import { getAllOrdenes ,getOrdenes, getCategorias, getTiendas, getMarcas,getProductos, getStores } from './consultas.js'
 import axios from 'axios';
 const __filename = fileURLToPath( import.meta.url )
 const __dirname = dirname( __filename )
@@ -42,8 +42,6 @@ app.engine( "handlebars", hbs.engine );
 app.set("view engine","handlebars");
 
 
-
-
 const HATEOASV1 = async() =>{
     const salida = await axios.get(`https://app-shopbikes.herokuapp.com/stores`)
     return salida  
@@ -68,6 +66,11 @@ app.post('/ordenes', async(req,res)=>{
 app.get('/ordenes', async(req,res)=>{
     const { category_id, store_id , brand_name } = req.body
     const ordenes = await getOrdenes( category_id, store_id , brand_name );
+    res.send(ordenes)
+})
+
+app.get('/allordenes', async(req,res)=>{
+    const ordenes = await getAllOrdenes();
     res.send(ordenes)
 })
 

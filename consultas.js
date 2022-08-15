@@ -51,10 +51,11 @@ export const getAllOrdenes = async() => {
     );
 
     const ordenes = result.rows
-    console.log('Salida de ordenes',ordenes)
     return ordenes
 
 }
+
+
 
 export const getOrdenes = async (category_id="1", store_id="1", brand_name="Electra" )  => {
     try {
