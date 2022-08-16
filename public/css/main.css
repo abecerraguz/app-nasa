@@ -207,14 +207,20 @@ input:focus{
     background-color: #390539;
     border-color: #ffffff4f;
     display: flex;
-    justify-content:flex-start;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
 }
+
 
 .alert-warning p,a{
     margin: 0;
     text-decoration: none;
     color: white;
+}
+
+.alert-warning p{
+    border-top: 1px solid #fff;
 }
 
 a{
