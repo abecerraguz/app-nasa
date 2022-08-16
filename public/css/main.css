@@ -202,5 +202,19 @@ input:focus{
     align-items: center!important;
 }
 
+.alert-warning {
+    color: #fff;
+    background-color: #390539;
+    border-color: #ffffff4f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert-warning p,a{
+    margin: 0;
+    text-decoration: none;
+}
+
 
 
