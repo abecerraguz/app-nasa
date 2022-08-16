@@ -17,17 +17,21 @@ const infoProducto = (store_name,product_id,product_name,quantity)=>{
 
 const replaced = (str)=>{
     if((/'/g.test(str))){
+        console.log('Entre uno')
         const replaced = str.replace(/'/g,``);
         return replaced
     }
     if((/"/g.test(str))){
+        console.log('Entre dos')
         const replaced = str.replace(/"/g ,``);
         return replaced
     }
-    if((/16\\"$/i.test(str))){
+    if((/^16\\"$/i.test(str))){
+        console.log('Entre tres')
         const replaced = str.replace(/^16\\"$/i ,`(16-inch)`);
         return replaced
     } 
+    return str
 }
 
 const pintarTable = async()=>{
