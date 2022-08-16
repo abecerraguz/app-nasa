@@ -249,10 +249,25 @@ code {
     margin: 0 0.3rem;
 }
 
-@media screen and (max-width: 992px) {
-    body {
-      background-color: blue;
+@media screen and (max-width: 425px) {
+    a.nav-link.api {
+        display: block;
+        margin: 0.3rem 0;
+        padding: 0.5rem 1rem;
     }
+    .formulario{
+        flex-direction: column;
+    }
+
+    #category_id, #store_id, #brand_name{
+        width: 100%;
+        margin: 1rem;
+    }
+    #enviar,#reset{
+        width: 100%;
+        margin: 1rem;
+    }
+
 }
 
 
