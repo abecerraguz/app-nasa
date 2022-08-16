@@ -20,7 +20,7 @@ const infoProducto = ( store_name, product_id, product_name, quantity)=>{
  }
 
 const replaced = (str)=>{
-
+    const out = str
     if(/'/g.test(str)){
         console.log('Entre uno')
         const replaced = str.replace(/'/g,`\'`);
@@ -38,7 +38,7 @@ const replaced = (str)=>{
     //     const replaced = str.replace(/^16\\"$/i ,`(16-inch)`);
     //     return replaced
     // } 
-    
+    return out
 }
 
 const pintarTable = async()=>{
