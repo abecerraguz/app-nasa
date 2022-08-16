@@ -217,5 +217,24 @@ input:focus{
     color: white;
 }
 
+a{
+    margin: 0;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+a:hover{
+    margin: 0;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.697);
+}
+
+code {
+    font-size: 1rem;
+    color: #d3ca41;
+    white-space: break-spaces;
+}
+
 
 
