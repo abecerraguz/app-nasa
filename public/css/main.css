@@ -219,8 +219,13 @@ input:focus{
     color: white;
 }
 
-.alert-warning p{
-    border-top: 1px solid #fff;
+.alert-warning p {
+    border-top: 1px solid rgb(255 255 255 / 46%);
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid rgb(255 255 255 / 46%);
+    margin: 0.5rem 0;
+    padding: 0.5rem;
 }
 
 a{
@@ -237,7 +242,7 @@ a:hover{
 }
 
 code {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #d3ca41;
     white-space:pre-line;
 }
