@@ -59,7 +59,7 @@ app.get('/', async(req,res)=>{
 app.get('/APIv1', async(req,res)=>{
     res.render("api",{
         layout:"main",
-        title:"API desarrolladas con NodeJs y Express",
+        title:"API desarrollada con NodeJs, Express, PostgresSql",
     })
 })
 
