@@ -13,12 +13,6 @@ body{
     letter-spacing: 1px;
 }
 
-.container{
-    max-width: 60%;
-    height: auto;
-    margin: 0 auto;
-}
-
 .row form{
     background: #221c35;
     padding: 2rem 2.5rem;
