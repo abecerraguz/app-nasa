@@ -191,4 +191,15 @@ input:focus{
     width: 100%;
 }
 
+.navbar-dark{
+    background-color: red!important;
+}
+
+.navbar-brand{
+    display: flex!important;
+    justify-content: center!important;
+    align-items: center!important;
+}
+
+
 
