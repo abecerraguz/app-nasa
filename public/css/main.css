@@ -248,8 +248,10 @@ code {
     white-space:pre-line;
 }
 .api{
-    padding: 0.5rem 1.5rem;
-    background-color: purple;
+    padding: 0.5rem 5rem;
+    background-color: #540454;
+    border-radius: 5px;
+    display: inline-block;
 }
 
 
