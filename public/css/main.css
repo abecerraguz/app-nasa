@@ -233,7 +233,7 @@ a:hover{
 code {
     font-size: 1rem;
     color: #d3ca41;
-    white-space: break-spaces;
+    white-space:pre-line;
 }
 
 
