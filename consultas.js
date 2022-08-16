@@ -7,9 +7,7 @@ const pool = new Pool({
     ssl:{
         rejectUnauthorized:false
     }
-
 });
-
 
 
 export const getStores = async() => {

@@ -10,10 +10,10 @@ const infoTienda = document.querySelector('.infoTienda')
 
 const infoProducto = ( store_name, product_id, product_name, quantity)=>{
     $('#mensajesModal').modal('toggle');
-    console.log('Salida store_name-->',store_name)
-    console.log('Salida product_id-->',product_id)
-    console.log('Salida product_name-->',product_name)
-    console.log('Salida quantity-->',quantity)
+    // console.log('Salida store_name-->',store_name)
+    // console.log('Salida product_id-->',product_id)
+    // console.log('Salida product_name-->',product_name)
+    // console.log('Salida quantity-->',quantity)
     modalBody.innerHTML=``
     modalBody.innerHTML=`<p>En la tienda <span class="text-uppercase text-danger">${store_name}</span> el producto <span class="text-uppercase text-danger">${product_name}</span> tiene un stock de <span class="text-uppercase text-danger">${quantity} bicicletas</span></p>`;
     infoTienda.innerHTML=`<h5 class="my-0">Tienda ${store_name}</h5>`      
@@ -22,13 +22,13 @@ const infoProducto = ( store_name, product_id, product_name, quantity)=>{
 const replaced = (str)=>{
     const out = str
     if(/'/g.test(str)){
-        console.log('Entre uno')
+        // console.log('Entre uno')
         const replaced = str.replace(/'/g,`&apos;`);
         return replaced
     }
 
     if(/"/g.test(str)){
-        console.log('Entre dos')
+        // console.log('Entre dos')
         const replaced = str.replace(/"/g ,`&quot;`);
         return replaced
     }

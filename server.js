@@ -55,6 +55,14 @@ app.get('/', async(req,res)=>{
     })
 })
 
+// Ruta APIv1
+app.get('/APIv1', async(req,res)=>{
+    res.render("api",{
+        layout:"main",
+        title:"API desarrolladas con NodeJs y Express",
+    })
+})
+
 // Ruta que recibe los criterios del form
 app.post('/ordenes', async(req,res)=>{
     const { category_id, store_id , brand_name } = req.body
