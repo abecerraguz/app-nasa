@@ -266,6 +266,9 @@ code {
     #enviar,#reset{
         width: 100%;
         margin: 0.3rem;
+        background: #480148;
+        border-left: 10px solid #480148;
+        border-right: 10px solid #480148;
     }
     .formulario{
         padding: 1rem 0.5rem;
