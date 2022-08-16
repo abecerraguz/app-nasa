@@ -8,30 +8,37 @@ const modalBody = document.querySelector('.modal-body')
 const infoTienda = document.querySelector('.infoTienda')
 
 
-const infoProducto = (store_name,product_id,product_name,quantity)=>{
-    $('#mensajesModal').modal('toggle')
+const infoProducto = ( store_name, product_id, product_name, quantity)=>{
+    $('#mensajesModal').modal('toggle');
+    console.log('Salida store_name-->',store_name)
+    console.log('Salida product_id-->',product_id)
+    console.log('Salida product_name-->',product_name)
+    console.log('Salida quantity-->',quantity)
 //     modalBody.innerHTML=``
 //     modalBody.innerHTML=`<p>En la tienda <span class="text-uppercase text-danger">${store_name}</span> el producto <span class="text-uppercase text-danger">${product_name}</span> tiene un stock de <span class="text-uppercase text-danger">${quantity} bicicletas</span></p>`;
 //     infoTienda.innerHTML=`<h5 class="my-0">Tienda ${store_name}</h5>`      
  }
 
 const replaced = (str)=>{
-    if((/'/g.test(str))){
+
+    if(/'/g.test(str)){
         console.log('Entre uno')
         const replaced = str.replace(/'/g,`\'`);
         return replaced
     }
-    if((/"/g.test(str))){
+
+    if(/"/g.test(str)){
         console.log('Entre dos')
         const replaced = str.replace(/"/g ,`\"`);
         return replaced
     }
+
     // if((/^16\\"$/i.test(str))){
     //     console.log('Entre tres')
     //     const replaced = str.replace(/^16\\"$/i ,`(16-inch)`);
     //     return replaced
     // } 
-    return str
+    
 }
 
 const pintarTable = async()=>{
