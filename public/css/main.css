@@ -261,11 +261,14 @@ code {
 
     #category_id, #store_id, #brand_name{
         width: 100%;
-        margin: 1rem;
+        margin: 0.3rem;
     }
     #enviar,#reset{
         width: 100%;
-        margin: 1rem;
+        margin: 0.3rem;
+    }
+    .formulario{
+        padding: 1rem 0.5rem;
     }
 
 }
