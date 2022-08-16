@@ -249,5 +249,11 @@ code {
     margin: 0 0.3rem;
 }
 
+@media screen and (max-width: 992px) {
+    body {
+      background-color: blue;
+    }
+}
+
 
 
