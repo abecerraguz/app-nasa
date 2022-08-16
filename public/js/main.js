@@ -23,7 +23,11 @@ const replaced = (str)=>{
     if((/"/g.test(str))){
         const replaced = str.replace(/"/g ,``);
         return replaced
-    }    
+    }
+    if((/16\\"$/i.test(str))){
+        const replaced = str.replace(/^16\\"$/i ,`(16-inch)`);
+        return replaced
+    } 
 }
 
 const pintarTable = async()=>{
@@ -37,7 +41,7 @@ const pintarTable = async()=>{
                 <tr>
                 <td>${element.store_name}</td>
                 <td>${element.product_id}</td>
-                <td>${element.product_name}</td>
+                <td>${replaced(element.product_name)}</td>
                 <td>${element.quantity}</td>
                 <td>
                 <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick="infoProducto('${element.store_name}','${element.product_id}','${replaced(element.product_name)}','${element.quantity}')">
@@ -79,7 +83,7 @@ enviar.addEventListener('click', async(e)=>{
                 <tr>
                 <td>${element.store_name}</td>
                 <td>${element.product_id}</td>
-                <td>${element.product_name}</td>
+                <td>${replaced(element.product_name)}</td>
                 <td>${element.quantity}</td>
                 <td>
                 <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick="infoProducto('${element.store_name}','${element.product_id}','${replaced(element.product_name)}','${element.quantity}')">
