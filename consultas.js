@@ -9,6 +9,14 @@ const pool = new Pool({
     }
 });
 
+// const pool = new Pool({
+//     user: "postgres",
+//     host: "localhost",
+//     password: "postgres",
+//     database: "bikeshop",
+//     port: 5432,
+// });
+
 
 export const getStores = async() => {
 

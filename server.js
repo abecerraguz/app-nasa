@@ -44,13 +44,14 @@ app.set("view engine","handlebars");
 
 const HATEOASV1 = async() =>{
     const salida = await axios.get(`https://app-shopbikes.herokuapp.com/stores`)
+    // const salida = await axios.get(`http://localhost:3000/stores`)
     return salida  
 }
 
 // Ruta raiz
 app.get('/', async(req,res)=>{
     res.render("admin",{
-        layout:"main",
+        layout:"home",
         title:"Sistema de búsqueda de ordenes",
     })
 })
@@ -58,7 +59,7 @@ app.get('/', async(req,res)=>{
 // Ruta APIv1
 app.get('/APIv1', async(req,res)=>{
     res.render("api",{
-        layout:"main",
+        layout:"api",
         title:"API desarrollada con NodeJs, Express, PostgresSql",
     })
 })
@@ -66,7 +67,7 @@ app.get('/APIv1', async(req,res)=>{
 // Ruta que recibe los criterios del form
 app.post('/ordenes', async(req,res)=>{
     const { category_id, store_id , brand_name } = req.body
-    console.log('Salida de req.body-->', category_id, store_id , brand_name )
+    // console.log('Salida de req.body-->', category_id, store_id , brand_name )
     const ordenes = await getOrdenes( category_id, store_id , brand_name );
     res.send(ordenes)
 })
@@ -100,7 +101,7 @@ app.get('/marcas', async(req,res)=>{
 
 app.get('/stores', async(req,res)=>{
     const stores = await getStores();
-    console.log('Salida de stores-->', stores)
+    // console.log('Salida de stores-->', stores)
     res.send(stores)
 })
 
@@ -112,6 +113,7 @@ app.get('/api/v1/stores',(req,res)=>{
                 return {
                     store_name:element.store_name,
                     src:`https://app-shopbikes.herokuapp.com/api/v1/store/${element.store_id}`,
+                    //src:`http://localhost:3000/${element.store_id}`,
                 }
             })
             
