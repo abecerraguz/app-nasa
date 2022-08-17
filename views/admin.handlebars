@@ -6,15 +6,13 @@
       <div class="contenedor">
          <p class="mt-3">{{> partials/title}}</p>
          <div class="formulario">
-            <div class="select-dropdown">
-                <select name="store_id" id="store_id">
-                    <option value="-1" selected="">Todas las Tiendas</option>
-                </select>
-            </div>
-            <select name="category_id" id="category_id">
+            <select class="form-select" name="store_id" id="store_id">
+                <option value="-1" selected="">Todas las Tiendas</option>
+            </select>
+            <select class="form-select" name="category_id" id="category_id">
                 <option value="-1" selected="">Todas las Categorias</option>
             </select>
-            <select name="brand_name" id="brand_name">
+            <select class="form-select" name="brand_name" id="brand_name">
                 <option value="-1" selected="">Todas las Marcas</option>
             </select>
             <input id="enviar" type="submit" value="Buscar">
