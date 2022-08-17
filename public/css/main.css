@@ -288,7 +288,7 @@ table {
 
 @media screen and (max-width: 425px) {
     html{
-        font-size: 14px;
+        font-size: 16px;
     }
 
     a.nav-link.api {
@@ -369,8 +369,10 @@ table {
       }
 
       .btn-danger{
-        padding: 1rem 0rem 1rem 0rem;
+        padding: 0.6rem 0rem 0.6rem 0rem;
         margin: 0.8rem 0;
+        background: #cd2901;
+        border: none;
       }
 
 }
