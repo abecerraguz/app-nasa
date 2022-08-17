@@ -6,10 +6,12 @@
     font-style: normal;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
+
 body{
     background: #39214f;
     color: #fff;
-    font-family: 'roboto_condensedregular', sans-serif;;
+    font-family: 'Roboto Condensed', sans-serif;
     letter-spacing: 1px;
 }
 
