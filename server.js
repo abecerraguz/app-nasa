@@ -67,7 +67,7 @@ app.get('/APIv1', async(req,res)=>{
 // Ruta que recibe los criterios del form
 app.post('/ordenes', async(req,res)=>{
     const { category_id, store_id , brand_name } = req.body
-    // console.log('Salida de req.body-->', category_id, store_id , brand_name )
+    console.log('Salida de req.body-->', category_id, store_id , brand_name )
     const ordenes = await getOrdenes( category_id, store_id , brand_name );
     res.send(ordenes)
 })
