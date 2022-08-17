@@ -75,6 +75,7 @@ enviar.addEventListener('click', async(e)=>{
         _brand_name
     }).then( result =>{
         const info = result.data
+        console.log('Salida de info--->',info)
         if(info.length != 0){
             infoTable.innerHTML=``
             info.forEach(element =>{
