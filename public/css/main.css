@@ -284,12 +284,7 @@ table {
     text-transform: uppercase;
   }
 
-  .limitText {
-    max-width: 120px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+
 
 @media screen and (max-width: 425px) {
     html{
@@ -378,6 +373,14 @@ table {
         margin: 0.8rem 0;
         background: #cd2901;
         border: none;
+      }
+      .limitText {
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin: 0;
+        text-align: right;
       }
 
 }
