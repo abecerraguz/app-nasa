@@ -382,6 +382,9 @@ table {
         margin: 0;
         text-align: right;
       } */
+      code{
+        display: none;
+      }
 
 }
 
