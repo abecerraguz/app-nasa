@@ -284,7 +284,12 @@ table {
     text-transform: uppercase;
   }
 
-
+  .limitText {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
 @media screen and (max-width: 425px) {
     html{

@@ -39,7 +39,7 @@ const pintarTable = async()=>{
                 <tr>
                 <td data-label="Tienda">${element.store_name}</td>
                 <td data-label="ID Producto">${element.product_id}</td>
-                <td data-label="Nombre Producto">${replaced(element.product_name)}</td>
+                <td data-label="Nombre Producto"><span class="limitText">${replaced(element.product_name)}</span></td>
                 <td data-label="Inventario">${element.quantity}</td>
                 <td>
                 <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick='infoProducto("${element.store_name}","${element.product_id}","${replaced(element.product_name)}","${element.quantity}")'>
@@ -81,7 +81,7 @@ enviar.addEventListener('click', async(e)=>{
                 <tr>
                 <td>${element.store_name}</td>
                 <td>${element.product_id}</td>
-                <td>${replaced(element.product_name)}</td>
+                <td><span class="limitText">${replaced(element.product_name)}</span></td>
                 <td>${element.quantity}</td>
                 <td>
                 <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick='infoProducto("${element.store_name}","${element.product_id}","${replaced(element.product_name)}","${element.quantity}")'>
