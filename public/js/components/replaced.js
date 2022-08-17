@@ -1,4 +1,4 @@
-export const replaced = (str)=>{
+const replaced = (str)=>{
     const out = str
     if(/'/g.test(str)){
         const replaced = str.replace(/'/g,`&apos;`);
@@ -11,3 +11,4 @@ export const replaced = (str)=>{
     }
     return out
 }
+export default replaced;

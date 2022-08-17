@@ -1,8 +1,8 @@
-// import * as UI from './interfaz.js';
-// // import infoProducto from './infoProducto.js';
-// import replaced from './replaced.js'
+import * as UI from './interfaz.js';
+import { infoProducto } from './infoProducto.js';
+import { replaced } from './replaced.js'
 
-export const pintarTable = async()=>{
+const pintarTable = async()=>{
     UI.loading.style.display = "flex";
     await axios.get('https://app-shopbikes.herokuapp.com/ordenes')
         .then( result => {
@@ -28,5 +28,5 @@ export const pintarTable = async()=>{
             UI.loading.style.display = "none";
         })    
 }
-
+export default pintarTable;
 {/* <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick='infoProducto("${element.store_name}","${element.product_id}","${replaced(element.product_name)}","${element.quantity}")'></button> */}
