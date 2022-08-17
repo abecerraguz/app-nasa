@@ -1,6 +1,6 @@
-import * as UI from './interfaz.js';
-// import infoProducto from './infoProducto.js';
-import replaced from './replaced.js'
+// import * as UI from './interfaz.js';
+// // import infoProducto from './infoProducto.js';
+// import replaced from './replaced.js'
 
 export const pintarTable = async()=>{
     UI.loading.style.display = "flex";
