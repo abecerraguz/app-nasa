@@ -1,11 +1,8 @@
 const enviar = document.querySelector('#enviar'),
-category_id = document.querySelector('#category_id'),
-store_id = document.querySelector('#store_id'),
 reset = document.querySelector('#reset'),
 loading = document.querySelector('.contentSpinnerLoading'),
 modalBody = document.querySelector('.modal-body'),
 infoTienda = document.querySelector('.infoTienda'),
-brand_name = document.querySelector('#brand_name'),
 infoTable = document.querySelector('#infoTable');
 
 loading.style.display = "none";
@@ -65,14 +62,15 @@ enviar.addEventListener('click', async(e)=>{
     e.preventDefault()
  
     loading.style.display = "flex";
-    const _category_id = category_id.value;
-    const _store_id = store_id.value;
-    const _brand_name = brand_name.value;
+    const brand_name = document.querySelector('#brand_name').value
+    const category_id = document.querySelector('#category_id').value
+    const store_id = document.querySelector('#store_id').value
+
     await axios.post('https://app-shopbikes.herokuapp.com/ordenes',{
     //await axios.post('http://localhost:3000/ordenes',{
-        _category_id,
-        _store_id,
-        _brand_name
+        category_id,
+        store_id,
+        brand_name
     }).then( result =>{
         const info = result.data
         console.log('Salida de info--->',info)
