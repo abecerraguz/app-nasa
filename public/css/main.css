@@ -251,6 +251,10 @@ code {
 }
 
 @media screen and (max-width: 425px) {
+    html{
+        font-size: 12px;
+    }
+    
     a.nav-link.api {
         display: block;
         margin: 0.3rem 0;
@@ -273,6 +277,9 @@ code {
     }
     .formulario{
         padding: 1rem 0.5rem;
+    }
+    .table{
+        font-size: 1rem;
     }
 
 }
