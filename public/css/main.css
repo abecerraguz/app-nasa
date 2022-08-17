@@ -251,7 +251,7 @@ code {
 }
 
 table {
-    border: 1px solid #ccc;
+    border: none;
     border-collapse: collapse;
     margin: 0;
     padding: 0;
@@ -265,8 +265,10 @@ table {
   }
   
   table tr {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
+    /* background-color: #f8f8f8;
+    border: 1px solid #ddd; */
+    background-color: none;
+    border: 1px solid none;
     padding: .35em;
   }
   
