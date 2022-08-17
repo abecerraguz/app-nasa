@@ -301,6 +301,7 @@ table {
     #category_id, #store_id, #brand_name{
         width: 100%;
         margin: 0.3rem;
+        padding: 0.8rem 0rem 0.8rem 0rem;
     }
     #enviar,#reset{
         width: 100%;
@@ -308,6 +309,7 @@ table {
         background: #480148;
         border-left: 10px solid #480148;
         border-right: 10px solid #480148;
+        padding: 0.8rem 0rem 0.8rem 0rem;
     }
     .formulario{
         padding: 1rem 0.5rem;
@@ -362,6 +364,11 @@ table {
       
       table td:last-child {
         border-bottom: 0;
+      }
+
+      .btn-danger{
+        padding: 1rem 0rem 1rem 0rem;
+        margin: 0.8rem 0;
       }
 
 }
