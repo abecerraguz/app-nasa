@@ -41,7 +41,7 @@ const pintarTable = async()=>{
                 <td data-label="ID Producto">${element.product_id}</td>
                 <td data-label="Nombre Producto">${replaced(element.product_name)}</td>
                 <td data-label="Inventario">${element.quantity}</td>
-                <td data-label="Acción">
+                <td>
                 <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick='infoProducto("${element.store_name}","${element.product_id}","${replaced(element.product_name)}","${element.quantity}")'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-zoom-in" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>

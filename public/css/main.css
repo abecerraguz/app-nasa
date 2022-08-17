@@ -286,7 +286,7 @@ table {
 
 @media screen and (max-width: 425px) {
     html{
-        font-size: 12px;
+        font-size: 14px;
     }
 
     a.nav-link.api {
@@ -336,9 +336,10 @@ table {
       }
       
       table tr {
-        border-bottom: 3px solid #ddd;
+        border-bottom: none;
         display: block;
-        margin-bottom: .625em;
+        margin-bottom: 0.925em;
+        background: #302745;
       }
       
       table td {
