@@ -1,7 +1,7 @@
 import * as UI from './components/interfaz.js';
-import { pintarTable } from './components/pintarTable.js';
-import { replaced } from './components/replaced.js';
-import { infoProducto } from './components/infoProducto.js';
+import pintarTable  from './components/pintarTable.js';
+import replaced  from './components/replaced.js';
+import infoProducto from './components/infoProducto.js';
 UI.loading.style.display = "none";
 
 // Filtrar busqueda
