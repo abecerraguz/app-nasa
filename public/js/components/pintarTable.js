@@ -1,16 +1,14 @@
-import * as UI from './components/interfaz.js';
-import infoProducto from './components/infoProducto.js';
+import * as UI from './interfaz.js';
+import infoProducto from './infoProducto.js';
 import replaced from './replaced.js'
 
 export const pintarTable = async()=>{
-
-    loading.style.display = "flex";
+    UI.loading.style.display = "flex";
     await axios.get('https://app-shopbikes.herokuapp.com/ordenes')
         .then( result => {
             const info = result.data
             info.forEach(element =>{
-
-                infoTable.innerHTML+=`
+                UI.infoTable.innerHTML+=`
                 <tr>
                 <td>${element.store_name}</td>
                 <td>${element.product_id}</td>
@@ -27,7 +25,7 @@ export const pintarTable = async()=>{
                 </td>
             </tr>`
             })
-            loading.style.display = "none";
+            UI.loading.style.display = "none";
         })    
 }
 
