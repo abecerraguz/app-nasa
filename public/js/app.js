@@ -65,14 +65,14 @@ enviar.addEventListener('click', async(e)=>{
     e.preventDefault()
  
     loading.style.display = "flex";
-    const category_id = category_id.value;
-    const store_id = store_id.value;
-    const brand_name = brand_name.value;
+    const _category_id = category_id.value;
+    const _store_id = store_id.value;
+    const _brand_name = brand_name.value;
     await axios.post('https://app-shopbikes.herokuapp.com/ordenes',{
     //await axios.post('http://localhost:3000/ordenes',{
-        category_id,
-        store_id,
-        brand_name
+        _category_id,
+        _store_id,
+        _brand_name
     }).then( result =>{
         const info = result.data
         if(info.length != 0){
