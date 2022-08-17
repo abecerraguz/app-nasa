@@ -6,5 +6,5 @@ loading = document.querySelector('.contentSpinnerLoading'),
 modalBody = document.querySelector('.modal-body'),
 infoTienda = document.querySelector('.infoTienda'),
 brand_name = document.querySelector('#brand_name'),
-infoTable = document.querySelector('#infoTable')
+infoTable = document.querySelector('#infoTable'),
 modalButton = document.querySelectorAll('#infoTable tr td button');
