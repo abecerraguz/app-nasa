@@ -374,14 +374,14 @@ table {
         background: #cd2901;
         border: none;
       }
-      .limitText {
+      /* .limitText {
         max-width: 150px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
         margin: 0;
         text-align: right;
-      }
+      } */
 
 }
 
