@@ -304,11 +304,6 @@ table {
   }
 
   .btn-danger {
-    /* background: #cd2901 url('../img/eye-solid.svg');
-    background-repeat: no-repeat;
-    background-size: 20px;
-    background-position-x: center;
-    background-position-y: center; */
     background: #cd2901;
     padding: 0.6rem 0rem 0.6rem 0rem;
     border: none;
@@ -321,7 +316,7 @@ table {
 
 
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
     html{
         font-size: 16px;
     }
