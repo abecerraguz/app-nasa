@@ -36,11 +36,10 @@ body{
 }
 
 #category_id, #store_id, #brand_name{
-    background: purple;
-    border-top: none;
-    border-bottom: none;
-    border-left: 10px solid purple;
-    border-right: 10px solid purple;
+    background:purple url('../img/angle-down-solid.svg');
+    background-repeat: no-repeat;
+    background-position: center right;
+    border: none;
     border-radius: 0.3rem;
     padding: 0.5rem 0rem 0.5rem 0rem;
     color: #fff;
