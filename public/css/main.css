@@ -38,7 +38,9 @@ body{
 #category_id, #store_id, #brand_name{
     background:purple url('../img/angle-down-solid.svg');
     background-repeat: no-repeat;
-    background-position: center right;
+    background-size: 20px;
+    background-position-x: calc(100% - 20px);
+    background-position-y: center;
     border: none;
     border-radius: 0.3rem;
     padding: 0.5rem 0rem 0.5rem 0rem;
@@ -302,7 +304,7 @@ table {
     #category_id, #store_id, #brand_name{
         width: 100%;
         margin: 0.3rem;
-        padding: 0.8rem 0rem 0.8rem 0rem;
+        padding: 0.8rem 1rem 0.8rem 1rem;
     }
     #enviar,#reset{
         width: 100%;
