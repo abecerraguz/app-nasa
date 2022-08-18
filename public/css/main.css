@@ -339,14 +339,14 @@ table {
     #enviar{
         background:#480148 url('../img/magnifying-glass-solid.svg');
         background-repeat: no-repeat;
-        background-size: 17px;
-        background-position-x: calc(100% - 20px);
+        background-size: 15px;
+        background-position-x: calc(120px);
         background-position-y: center;
         border-radius: 0.3rem;
         padding: 0.5rem 0rem 0.5rem 0rem;
         color: #fff;
-        width:100%;
-        margin:0.3rem;
+        width: 100%;
+        margin: 0.3rem;
         text-transform: uppercase;
         font-size: 13px;
         letter-spacing: 1px;
@@ -356,13 +356,13 @@ table {
     #reset{
         background:#480148 url('../img/arrow-rotate-left-solid.svg');
         background-repeat: no-repeat;
-        background-size: 17px;
-        background-position-x: calc(100% - 20px);
+        background-size: 15px;
+        background-position-x: calc(120px);
         background-position-y: center;
         border-radius: 0.3rem;
         padding: 0.5rem 0rem 0.5rem 0rem;
         color: #fff;
-        width:100%;
+        width: 100%;
         margin: 0.3rem;
         text-transform: uppercase;
         font-size: 13px;
