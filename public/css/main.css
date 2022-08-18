@@ -435,7 +435,7 @@ table {
       code{
         display: none;
       }
-      
+
       .btn-danger {
         background: #cd2901 url('../img/eye-solid.svg');
         background-repeat: no-repeat;
@@ -444,7 +444,7 @@ table {
         background-position-y: center;
         padding: 0.6rem 0rem 0.6rem 0rem;
         border: none;
-        height: 335px;
+        height: 35px;
         max-width:50%;
         margin: 0.3rem auto;
      }
