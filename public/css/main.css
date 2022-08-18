@@ -55,7 +55,7 @@ body{
 #enviar{
     background:purple url('../img/magnifying-glass-solid.svg');
     background-repeat: no-repeat;
-    background-size: 20px;
+    background-size: 17px;
     background-position-x: calc(100% - 20px);
     background-position-y: center;
     border-radius: 0.3rem;
@@ -66,12 +66,13 @@ body{
     text-transform: uppercase;
     font-size: 13px;
     letter-spacing: 1px;
+    border: none;
 }
 
 #reset{
     background:purple url('../img/arrow-rotate-left-solid.svg');
     background-repeat: no-repeat;
-    background-size: 20px;
+    background-size: 17px;
     background-position-x: calc(100% - 20px);
     background-position-y: center;
     border-radius: 0.3rem;
@@ -82,6 +83,7 @@ body{
     text-transform: uppercase;
     font-size: 13px;
     letter-spacing: 1px;
+    border: none;
 }
 
 .row .contenedor{
@@ -301,16 +303,17 @@ table {
     text-transform: uppercase;
   }
 
-  .btn-danger{
-    background:#cd2901 url('../img/eye-solid.svg');
+  .btn-danger {
+    background: #cd2901 url('../img/eye-solid.svg');
     background-repeat: no-repeat;
     background-size: 20px;
     background-position-x: center;
     background-position-y: center;
     padding: 0.6rem 0rem 0.6rem 0rem;
-    margin: 0.8rem 0;
     border: none;
-  }
+    height: 30px;
+    max-width: 120px;
+ }
 
 
 
@@ -396,18 +399,20 @@ table {
         border-bottom: 0;
       }
 
-
-      /* .limitText {
-        max-width: 150px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        margin: 0;
-        text-align: right;
-      } */
       code{
         display: none;
       }
+      .btn-danger {
+        background: #cd2901 url('../img/eye-solid.svg');
+        background-repeat: no-repeat;
+        background-size: 20px;
+        background-position-x: center;
+        background-position-y: center;
+        padding: 0.6rem 0rem 0.6rem 0rem;
+        border: none;
+        height: 30px;
+        max-width:100%;
+     }
 
 }
 
