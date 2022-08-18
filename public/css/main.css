@@ -301,6 +301,17 @@ table {
     text-transform: uppercase;
   }
 
+  .btn-danger{
+    background:#cd2901 url('../img/eye-solid.svg');
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position-x: center;
+    background-position-y: center;
+    padding: 0.6rem 0rem 0.6rem 0rem;
+    margin: 0.8rem 0;
+    border: none;
+  }
+
 
 
 @media screen and (max-width: 425px) {
@@ -385,12 +396,7 @@ table {
         border-bottom: 0;
       }
 
-      .btn-danger{
-        padding: 0.6rem 0rem 0.6rem 0rem;
-        margin: 0.8rem 0;
-        background: #cd2901;
-        border: none;
-      }
+
       /* .limitText {
         max-width: 150px;
         overflow: hidden;
