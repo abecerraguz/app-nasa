@@ -337,7 +337,7 @@ table {
         padding: 0.8rem 1rem 0.8rem 1rem;
     }
     #enviar{
-        background:purple url('../img/magnifying-glass-solid.svg');
+        background:#480148 url('../img/magnifying-glass-solid.svg');
         background-repeat: no-repeat;
         background-size: 17px;
         background-position-x: calc(100% - 20px);
@@ -345,8 +345,8 @@ table {
         border-radius: 0.3rem;
         padding: 0.5rem 0rem 0.5rem 0rem;
         color: #fff;
-        width:calc(25% / 2);
-        margin: 0 0.5rem;
+        width:100%;
+        margin:0.3rem;
         text-transform: uppercase;
         font-size: 13px;
         letter-spacing: 1px;
@@ -354,7 +354,7 @@ table {
     }
     
     #reset{
-        background:purple url('../img/arrow-rotate-left-solid.svg');
+        background:#480148 url('../img/arrow-rotate-left-solid.svg');
         background-repeat: no-repeat;
         background-size: 17px;
         background-position-x: calc(100% - 20px);
@@ -362,13 +362,14 @@ table {
         border-radius: 0.3rem;
         padding: 0.5rem 0rem 0.5rem 0rem;
         color: #fff;
-        width:calc(25% / 2);
-        margin: 0 0.5rem;
+        width:100%;
+        margin: 0.3rem;
         text-transform: uppercase;
         font-size: 13px;
         letter-spacing: 1px;
         border: none;
     }
+
     .formulario{
         padding: 1rem 0.5rem;
     }
