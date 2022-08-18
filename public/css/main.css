@@ -43,7 +43,7 @@ body{
     background-position-y: center;
     border: none;
     border-radius: 0.3rem;
-    padding: 0.5rem 0rem 0.5rem 0rem;
+    padding: 0.5rem 0rem 0.5rem 1rem;
     color: #fff;
     width:25%;
     margin: 0 0.5rem;
@@ -52,12 +52,28 @@ body{
     letter-spacing: 1px;
 }
 
-#enviar,#reset{
-    background: purple;
-    border-top: none;
-    border-bottom: none;
-    border-left: 10px solid purple;
-    border-right: 10px solid purple;
+#enviar{
+    background:purple url('../img/magnifying-glass-solid.svg');
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position-x: calc(100% - 20px);
+    background-position-y: center;
+    border-radius: 0.3rem;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+    color: #fff;
+    width:calc(25% / 2);
+    margin: 0 0.5rem;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+#reset{
+    background:purple url('../img/arrow-rotate-left-solid.svg');
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position-x: calc(100% - 20px);
+    background-position-y: center;
     border-radius: 0.3rem;
     padding: 0.5rem 0rem 0.5rem 0rem;
     color: #fff;
