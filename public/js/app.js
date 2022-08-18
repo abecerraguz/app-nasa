@@ -42,7 +42,9 @@ const pintarTable = async()=>{
                 <td data-label="Producto">${replaced(element.product_name)}</td>
                 <td data-label="Inventario">${element.quantity}</td>
                 <td>
-                    <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick='infoProducto("${element.store_name}","${element.product_id}","${replaced(element.product_name)}","${element.quantity}")'></button>
+                    <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick='infoProducto("${element.store_name}","${element.product_id}","${replaced(element.product_name)}","${element.quantity}")'>
+                        Ver información
+                    </button>
                 </td>
             </tr>`
 
@@ -79,7 +81,7 @@ enviar.addEventListener('click', async(e)=>{
                 <td data-label="Inventario">${element.quantity}</td>
                 <td>
                     <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick='infoProducto("${element.store_name}","${element.product_id}","${replaced(element.product_name)}","${element.quantity}")'>
-                        <img src="./../public/img/eye-solid.svg" alt="Ver información">Ver información
+                        Ver información
                     </button>
                 </td>
             </tr>`
