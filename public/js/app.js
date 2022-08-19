@@ -1,6 +1,6 @@
 const enviar = document.querySelector('#enviar'),
 reset = document.querySelector('#reset'),
-loading = document.querySelector('.contentSpinnerLoading')
+loading = document.querySelector('.contentSpinnerLoading'),
 infoTable = document.querySelector('#infoTable');
 loading.style.display = "none";
 import infoProducto from './infoProducto.js'
