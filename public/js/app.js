@@ -1,9 +1,11 @@
+import infoProducto from './infoProducto.js';
 const enviar = document.querySelector('#enviar'),
 reset = document.querySelector('#reset'),
 loading = document.querySelector('.contentSpinnerLoading'),
 infoTable = document.querySelector('#infoTable');
 loading.style.display = "none";
-import infoProducto from './infoProducto.js'
+
+
 
 // const infoProducto = ( store_name , product_id, product_name, quantity)=>{
 //     $('#mensajesModal').modal('toggle');
@@ -32,8 +34,18 @@ const pintarTable = async()=>{
     // await axios.get('http://localhost:3000/ordenes')
         .then( result => {
             const info = result.data
+            const infoButton = document.querySelectorAll('#infoTable tr td button');
+
+            infoButton.forEach( element => {
+                element.addEventListener('click',(e)=>{
+                    e.preventDefault();
+                    console.log('Salida de click-->')
+                })
+            })
+
+
             info.forEach(element =>{
-                const storeName = element.store_name;
+
                 infoTable.innerHTML+=`
                 <tr>
                 <td data-label="Tienda">${element.store_name}</td>
@@ -41,7 +53,7 @@ const pintarTable = async()=>{
                 <td data-label="Producto">${replaced(element.product_name)}</td>
                 <td data-label="Inventario">${element.quantity}</td>
                 <td>
-                    <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick='${()=>infoProducto(storeName, element.product_id, replaced(element.product_name), element.quantity)}'>
+                    <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}">
                         Ver información
                     </button>
                 </td>
