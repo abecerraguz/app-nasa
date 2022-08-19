@@ -3,7 +3,6 @@ import infoProducto from './infoProducto.js';
 import replaceQuotes from './replaceQuotes.js';
 UI.loading.style.display = "none";
 
-
 const pintarTable = async() => {
     UI.loading.style.display = "flex";
     await axios.get('https://app-shopbikes.herokuapp.com/ordenes')
