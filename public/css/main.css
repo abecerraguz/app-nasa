@@ -58,6 +58,7 @@ body{
     background-size: 17px;
     background-position-x: calc(100% - 20px);
     background-position-y: center; */
+    background:purple;
     border-radius: 0.3rem;
     padding: 0.5rem 0rem 0.5rem 0rem;
     color: #fff;
@@ -75,6 +76,7 @@ body{
     background-size: 17px;
     background-position-x: calc(100% - 20px);
     background-position-y: center; */
+    background:purple;
     border-radius: 0.3rem;
     padding: 0.5rem 0rem 0.5rem 0rem;
     color: #fff;
@@ -341,6 +343,7 @@ table {
         background-size: 15px;
         background-position-x: calc(120px);
         background-position-y: center; */
+        background:#480148;
         border-radius: 0.3rem;
         padding: 0.5rem 0rem 0.5rem 0rem;
         color: #fff;
@@ -358,6 +361,7 @@ table {
         background-size: 15px;
         background-position-x: calc(120px);
         background-position-y: center; */
+        background:#480148;
         border-radius: 0.3rem;
         padding: 0.5rem 0rem 0.5rem 0rem;
         color: #fff;
