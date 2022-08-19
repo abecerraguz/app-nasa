@@ -2,7 +2,7 @@ import * as UI from './interfaz.js'
 import infoProducto from './infoProducto.js';
 import replaceQuotes from './replaceQuotes.js';
 
-const pintarTable = async ( brand_name, category_id, store_id ) => {
+const pintarTable = async (  ) => {
     console.log( 'Llego info-->', brand_name,category_id,store_id )
     UI.loading.style.display = "flex";
     await axios.get('https://app-shopbikes.herokuapp.com/ordenes')
