@@ -4,7 +4,7 @@ import replaceQuotes from './replaceQuotes.js';
 import printTable from './printTable.js';
 UI.loading.style.display = "none";
 
-printTable()
+
 // const pintarTable = async() => {
 //     UI.loading.style.display = "flex";
 //     await axios.get('https://app-shopbikes.herokuapp.com/ordenes')
@@ -130,6 +130,8 @@ UI.reset.addEventListener('click',(e)=>{
     window.location.href = `https://app-shopbikes.herokuapp.com`
     //window.location.href = `http://localhost:3000`
 })
+
+printTable('1','1','Electra')
 
 
 
