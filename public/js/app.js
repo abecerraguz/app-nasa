@@ -1,32 +1,15 @@
 import infoProducto from './infoProducto.js';
+import replaceQuotes from './replaceQuotes.js';
+
 const enviar = document.querySelector('#enviar'),
 reset = document.querySelector('#reset'),
 loading = document.querySelector('.contentSpinnerLoading'),
-infoTable = document.querySelector('#infoTable');
+infoTable = document.querySelector('#infoTable'),
+infoButton = document.querySelectorAll('#infoTable tr td button');
+
 loading.style.display = "none";
 
 
-
-// const infoProducto = ( store_name , product_id, product_name, quantity)=>{
-//     $('#mensajesModal').modal('toggle');
-//     modalBody.innerHTML=``
-//     modalBody.innerHTML=`<p>En la tienda <span class="text-uppercase text-danger">${store_name}</span> el producto <span class="text-uppercase text-danger">${product_name}</span> tiene un stock de <span class="text-uppercase text-danger">${quantity} bicicletas</span></p>`;
-//     infoTienda.innerHTML=`<h5 class="my-0">Tienda ${store_name}</h5>`      
-// }
-
-const replaced = (str)=>{
-    const out = str
-    if(/'/g.test(str)){
-        const replaced = str.replace(/'/g,`&apos;`);
-        return replaced
-    }
-
-    if(/"/g.test(str)){
-        const replaced = str.replace(/"/g ,`&quot;`);
-        return replaced
-    }
-    return out
-}
 
 const pintarTable = async()=>{
     loading.style.display = "flex";
@@ -34,16 +17,12 @@ const pintarTable = async()=>{
     // await axios.get('http://localhost:3000/ordenes')
         .then( result => {
             const info = result.data
-            
-
-
             info.forEach(element =>{
-
                 infoTable.innerHTML+=`
                 <tr>
                 <td data-label="Tienda">${element.store_name}</td>
                 <td data-label="ID">${element.product_id}</td>
-                <td data-label="Producto">${replaced(element.product_name)}</td>
+                <td data-label="Producto">${replaceQuotes(element.product_name)}</td>
                 <td data-label="Inventario">${element.quantity}</td>
                 <td>
                     <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}">
@@ -53,25 +32,24 @@ const pintarTable = async()=>{
             </tr>`
 
             })
+
             loading.style.display = "none";
 
-            const infoButton = document.querySelectorAll('#infoTable tr td button');
-            console.log('Salida de infoButton',infoButton)
             infoButton.forEach( element => {
                 element.addEventListener('click',(e)=>{
                     e.preventDefault();
                     const infoId = e.target.id
-                    console.log('Salida de click-->',infoId)
-                    const buscar = info.find( element=> element.product_id == infoId )
-                    console.log( 'Salida de buscar', buscar )
-                    infoProducto(buscar.store_name, buscar.product_id, replaced(buscar.product_name), buscar.quantity)
+                    const buscar = info.find( element => element.product_id == infoId )
+                    infoProducto(buscar.store_name, buscar.product_id, replaceQuotes(buscar.product_name), buscar.quantity)
                 })
             })
+
         })    
 }
 
 // Filtrar busqueda
 enviar.addEventListener('click', async(e)=>{
+
     e.preventDefault()
  
     loading.style.display = "flex";
@@ -88,6 +66,7 @@ enviar.addEventListener('click', async(e)=>{
         const info = result.data
         console.log('Salida de info--->',info)
         if(info.length != 0){
+
             infoTable.innerHTML=``
             info.forEach(element =>{
                 infoTable.innerHTML+=`
@@ -97,13 +76,23 @@ enviar.addEventListener('click', async(e)=>{
                 <td data-label="Producto">${replaced(element.product_name)}</td>
                 <td data-label="Inventario">${element.quantity}</td>
                 <td>
-                    <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick='infoProducto("${element.store_name}","${element.product_id}","${replaced(element.product_name)}","${element.quantity}")'>
+                    <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}">
                         Ver información
                     </button>
                 </td>
             </tr>`
             })
             loading.style.display = "none";
+            
+            infoButton.forEach( element => {
+                element.addEventListener('click',(e)=>{
+                    e.preventDefault();
+                    const infoId = e.target.id
+                    const buscar = info.find( element => element.product_id == infoId )
+                    infoProducto(buscar.store_name, buscar.product_id, replaceQuotes(buscar.product_name), buscar.quantity)
+                })
+            })
+
         }else{
             loading.style.display = "none";
             infoTable.innerHTML=`<tr> 
