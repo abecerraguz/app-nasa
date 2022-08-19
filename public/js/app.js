@@ -33,6 +33,7 @@ const pintarTable = async()=>{
         .then( result => {
             const info = result.data
             info.forEach(element =>{
+                const storeName = element.store_name;
                 infoTable.innerHTML+=`
                 <tr>
                 <td data-label="Tienda">${element.store_name}</td>
@@ -40,7 +41,7 @@ const pintarTable = async()=>{
                 <td data-label="Producto">${replaced(element.product_name)}</td>
                 <td data-label="Inventario">${element.quantity}</td>
                 <td>
-                    <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick='${()=>infoProducto(element.store_name, element.product_id, replaced(element.product_name), element.quantity)}'>
+                    <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick='${()=>infoProducto(storeName, element.product_id, replaced(element.product_name), element.quantity)}'>
                         Ver información
                     </button>
                 </td>
