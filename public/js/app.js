@@ -73,7 +73,7 @@ enviar.addEventListener('click', async(e)=>{
                 <tr>
                 <td data-label="Tienda">${element.store_name}</td>
                 <td data-label="ID">${element.product_id}</td>
-                <td data-label="Producto">${replaced(element.product_name)}</td>
+                <td data-label="Producto">${replaceQuotes(element.product_name)}</td>
                 <td data-label="Inventario">${element.quantity}</td>
                 <td>
                     <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}">
