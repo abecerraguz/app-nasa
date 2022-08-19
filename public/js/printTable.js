@@ -13,21 +13,22 @@ const pintarTable = async ( brand_name, category_id, store_id ) => {
     // await axios.get('http://localhost:3000/ordenes')
         .then( result => {
             const info = result.data
-            info.forEach(element =>{
-                UI.infoTable.innerHTML+=`
-                <tr>
-                <td data-label="Tienda">${element.store_name}</td>
-                <td data-label="ID">${element.product_id}</td>
-                <td data-label="Producto">${replaceQuotes(element.product_name)}</td>
-                <td data-label="Inventario">${element.quantity}</td>
-                <td>
-                    <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}">
-                        Ver información
-                    </button>
-                </td>
-            </tr>`
+            console.log('Salida de info',info)
+            // info.forEach(element =>{
+            //     UI.infoTable.innerHTML+=`
+            //     <tr>
+            //     <td data-label="Tienda">${element.store_name}</td>
+            //     <td data-label="ID">${element.product_id}</td>
+            //     <td data-label="Producto">${replaceQuotes(element.product_name)}</td>
+            //     <td data-label="Inventario">${element.quantity}</td>
+            //     <td>
+            //         <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}">
+            //             Ver información
+            //         </button>
+            //     </td>
+            // </tr>`
 
-            })
+            // })
 
             UI.loading.style.display = "none";
             const infoButton = document.querySelectorAll('#infoTable tr td button');

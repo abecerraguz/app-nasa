@@ -130,5 +130,5 @@ UI.reset.addEventListener('click',(e)=>{
     //window.location.href = `http://localhost:3000`
 })
 
-printTable(1,1,'Electra')
+printTable('1','1','Electra')
 
