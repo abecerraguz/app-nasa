@@ -2,14 +2,10 @@ import * as UI from './interfaz.js'
 import infoProducto from './infoProducto.js';
 import replaceQuotes from './replaceQuotes.js';
 
-const printTable = async ( brand_name, category_id, store_id ) => {
-    console.log( 'Llego info-->', brand_name,category_id,store_id )
+const printTable = async (  ) => {
+    // console.log( 'Llego info-->', brand_name,category_id,store_id )
     UI.loading.style.display = "flex";
-    await axios.post('https://app-shopbikes.herokuapp.com/ordenes',{
-        category_id,
-        store_id,
-        brand_name
-    })
+    await axios.get('https://app-shopbikes.herokuapp.com/ordenes')
     // await axios.get('http://localhost:3000/ordenes')
         .then( result => {
             const info = result.data
