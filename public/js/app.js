@@ -4,8 +4,8 @@ import replaceQuotes from './replaceQuotes.js';
 const enviar = document.querySelector('#enviar'),
 reset = document.querySelector('#reset'),
 loading = document.querySelector('.contentSpinnerLoading'),
-infoTable = document.querySelector('#infoTable'),
-infoButton = document.querySelectorAll('#infoTable tr td button');
+infoTable = document.querySelector('#infoTable');
+
 
 loading.style.display = "none";
 
@@ -34,7 +34,7 @@ const pintarTable = async()=>{
             })
 
             loading.style.display = "none";
-
+            const infoButton = document.querySelectorAll('#infoTable tr td button');
             infoButton.forEach( element => {
                 element.addEventListener('click',(e)=>{
                     e.preventDefault();
@@ -83,7 +83,7 @@ enviar.addEventListener('click', async(e)=>{
             </tr>`
             })
             loading.style.display = "none";
-            
+            const infoButton = document.querySelectorAll('#infoTable tr td button');
             infoButton.forEach( element => {
                 element.addEventListener('click',(e)=>{
                     e.preventDefault();
