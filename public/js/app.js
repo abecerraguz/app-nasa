@@ -1,24 +1,17 @@
+import * as UI from './interfaz.js'
 import infoProducto from './infoProducto.js';
 import replaceQuotes from './replaceQuotes.js';
-
-const enviar = document.querySelector('#enviar'),
-reset = document.querySelector('#reset'),
-loading = document.querySelector('.contentSpinnerLoading'),
-infoTable = document.querySelector('#infoTable');
+UI.loading.style.display = "none";
 
 
-loading.style.display = "none";
-
-
-
-const pintarTable = async()=>{
-    loading.style.display = "flex";
+const pintarTable = async() => {
+    UI.loading.style.display = "flex";
     await axios.get('https://app-shopbikes.herokuapp.com/ordenes')
     // await axios.get('http://localhost:3000/ordenes')
         .then( result => {
             const info = result.data
             info.forEach(element =>{
-                infoTable.innerHTML+=`
+                UI.infoTable.innerHTML+=`
                 <tr>
                 <td data-label="Tienda">${element.store_name}</td>
                 <td data-label="ID">${element.product_id}</td>
@@ -33,7 +26,7 @@ const pintarTable = async()=>{
 
             })
 
-            loading.style.display = "none";
+            UI.loading.style.display = "none";
             const infoButton = document.querySelectorAll('#infoTable tr td button');
             infoButton.forEach( element => {
                 element.addEventListener('click',(e)=>{
@@ -48,15 +41,12 @@ const pintarTable = async()=>{
 }
 
 // Filtrar busqueda
-enviar.addEventListener('click', async(e)=>{
-
+UI.enviar.addEventListener('click', async(e)=>{
     e.preventDefault()
- 
-    loading.style.display = "flex";
+    UI.loading.style.display = "flex";
     const brand_name = document.querySelector('#brand_name').value
     const category_id = document.querySelector('#category_id').value
     const store_id = document.querySelector('#store_id').value
-
     await axios.post('https://app-shopbikes.herokuapp.com/ordenes',{
     //await axios.post('http://localhost:3000/ordenes',{
         category_id,
@@ -64,12 +54,10 @@ enviar.addEventListener('click', async(e)=>{
         brand_name
     }).then( result =>{
         const info = result.data
-        console.log('Salida de info--->',info)
         if(info.length != 0){
-
-            infoTable.innerHTML=``
+            UI.infoTable.innerHTML=``
             info.forEach(element =>{
-                infoTable.innerHTML+=`
+                UI.infoTable.innerHTML+=`
                 <tr>
                 <td data-label="Tienda">${element.store_name}</td>
                 <td data-label="ID">${element.product_id}</td>
@@ -82,7 +70,7 @@ enviar.addEventListener('click', async(e)=>{
                 </td>
             </tr>`
             })
-            loading.style.display = "none";
+            UI.loading.style.display = "none";
             const infoButton = document.querySelectorAll('#infoTable tr td button');
             infoButton.forEach( element => {
                 element.addEventListener('click',(e)=>{
@@ -94,8 +82,8 @@ enviar.addEventListener('click', async(e)=>{
             })
 
         }else{
-            loading.style.display = "none";
-            infoTable.innerHTML=`<tr> 
+            UI.loading.style.display = "none";
+            UI.infoTable.innerHTML=`<tr> 
                 <td colspan="5">
                     <h5 class="text-center my-5">Lo sentimos la orden que esta buscando no existe!!</h5>
                 </td>
@@ -122,7 +110,7 @@ axios.get('https://app-shopbikes.herokuapp.com/tiendas')
     .then( result =>{
         const tiendas = result.data
         tiendas.forEach( element => {
-            store_id.innerHTML+= `<option value="${element.store_id}">${element.store_name}</option>`
+            UI.store_id.innerHTML+= `<option value="${element.store_id}">${element.store_name}</option>`
         });
 })
 
@@ -132,11 +120,11 @@ axios.get('https://app-shopbikes.herokuapp.com/marcas')
     .then( result =>{
         const marcas = result.data
         marcas.forEach( element => {
-            brand_name.innerHTML+= `<option value="${element.brand_name}">${element.brand_name}</option>`
+            UI.brand_name.innerHTML+= `<option value="${element.brand_name}">${element.brand_name}</option>`
         });
 })
 
-reset.addEventListener('click',(e)=>{
+UI.reset.addEventListener('click',(e)=>{
     e.preventDefault();
     window.location.href = `https://app-shopbikes.herokuapp.com`
     //window.location.href = `http://localhost:3000`
