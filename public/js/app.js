@@ -35,7 +35,7 @@ const pintarTable = async()=>{
         .then( result => {
             const info = result.data
             const infoButton = document.querySelectorAll('#infoTable tr td button');
-
+            console.log('Salida de infoButton',infoButton)
             infoButton.forEach( element => {
                 element.addEventListener('click',(e)=>{
                     e.preventDefault();
