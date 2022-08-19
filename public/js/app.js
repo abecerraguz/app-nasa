@@ -62,6 +62,8 @@ const pintarTable = async()=>{
                     e.preventDefault();
                     const infoId = e.target.id
                     console.log('Salida de click-->',infoId)
+                    const buscar = info.find( element=> element.product_id == infoId )
+                    console.log( 'Salida de buscar', buscar )
                 })
             })
         })    
