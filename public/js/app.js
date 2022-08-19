@@ -1,7 +1,7 @@
 import * as UI from './interfaz.js'
 import infoProducto from './infoProducto.js';
 import replaceQuotes from './replaceQuotes.js';
-import printTable from './replaceQuotes.js';
+import printTable from './printTable.js';
 UI.loading.style.display = "none";
 
 // const pintarTable = async() => {
@@ -130,5 +130,5 @@ UI.reset.addEventListener('click',(e)=>{
     //window.location.href = `http://localhost:3000`
 })
 
-printTable('1','1','Electra')
+printTable(1,1,'Electra')
 
