@@ -6,11 +6,7 @@ UI.loading.style.display = "none";
 UI.enviar.addEventListener('click', async(e)=>{
     e.preventDefault()
     UI.loading.style.display = "flex";
-    console.log('UI.brand_name-->',UI.brand_name.value)
-    const brand_name = document.querySelector('#brand_name').value
-    const category_id = document.querySelector('#category_id').value
-    const store_id = document.querySelector('#store_id').value
-    printTable( category_id, store_id, brand_name )
+    printTable( UI.category_id.value, UI.store_id.value, UI.brand_name.value )
 })
 
 // Insert option de categoria 
