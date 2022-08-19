@@ -1,5 +1,5 @@
-import * as UI from './interfaz.js'
-import printTable from './printTable.js';
+import * as UI from './utilities/interfaz.js'
+import printTable from './utilities/printTable.js';
 UI.loading.style.display = "none";
 
 // Filtrar busqueda
