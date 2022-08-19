@@ -3,6 +3,7 @@ import infoProducto from './infoProducto.js';
 import replaceQuotes from './replaceQuotes.js';
 
 const pintarTable = async ( brand_name, category_id, store_id ) => {
+    console.log( 'Llego info-->', brand_name,category_id,store_id )
     UI.loading.style.display = "flex";
     await axios.post('https://app-shopbikes.herokuapp.com/ordenes',{
         category_id,
