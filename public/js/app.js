@@ -2,7 +2,7 @@ import * as UI from './utilities/interfaz.js'
 import printTable from './utilities/printTable.js';
 UI.loading.style.display = "none";
 
-// Filtrar busqueda
+// Filtrar busqueda por ID de la categoría, ID de la tienda, nombre de la tienda
 UI.enviar.addEventListener('click', async(e)=>{
     e.preventDefault()
     UI.loading.style.display = "flex";
