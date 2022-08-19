@@ -61,9 +61,7 @@ export const getAllOrdenes = async() => {
 
 }
 
-
-
-export const getOrdenes = async (category_id="1", store_id="1", brand_name="Electra" )  => {
+export const getOrdenes = async ( category_id, store_id, brand_name )  => {
     try {
         const result = await pool.query(
             `select st.store_name, p.product_id, p.product_name , s.quantity from categories c 
@@ -79,8 +77,6 @@ export const getOrdenes = async (category_id="1", store_id="1", brand_name="Elec
     } catch (error) {
         console.log(error)
     }
-   
-
 }
 
 export const getCategorias = async ()  => {
