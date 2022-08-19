@@ -3,7 +3,6 @@ import infoProducto from './infoProducto.js';
 import replaceQuotes from './replaceQuotes.js';
 
 const printTable = async ( category_id, store_id, brand_name ) => {
-    // console.log( 'Llego info-->', brand_name,category_id,store_id )
     UI.loading.style.display = "flex";
     await axios.post('https://app-shopbikes.herokuapp.com/ordenes',{
         category_id,

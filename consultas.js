@@ -61,11 +61,10 @@ export const getAllOrdenes = async() => {
 
 }
 
-export const getOrdenes = async ( category_id, store_id, brand_name )  => {
+
+
+export const getOrdenes = async (category_id="1", store_id="1", brand_name="Electra" )  => {
     try {
-        console.log('Salida de category_id', category_id)
-        console.log('Salida de store_id', store_id)
-        console.log('Salida de brand_name', brand_name)
         const result = await pool.query(
             `select st.store_name, p.product_id, p.product_name , s.quantity from categories c 
             inner join products p on (p.category_id = c.category_id) 
@@ -80,6 +79,8 @@ export const getOrdenes = async ( category_id, store_id, brand_name )  => {
     } catch (error) {
         console.log(error)
     }
+   
+
 }
 
 export const getCategorias = async ()  => {
