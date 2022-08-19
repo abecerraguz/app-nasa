@@ -1,11 +1,9 @@
 const enviar = document.querySelector('#enviar'),
 reset = document.querySelector('#reset'),
-loading = document.querySelector('.contentSpinnerLoading'),
+loading = document.querySelector('.contentSpinnerLoading')
 infoTable = document.querySelector('#infoTable');
 loading.style.display = "none";
-import { infoProducto } from './infoProducto.js';
-
-
+import infoProducto from './infoProducto.js'
 
 // const infoProducto = ( store_name , product_id, product_name, quantity)=>{
 //     $('#mensajesModal').modal('toggle');
@@ -42,7 +40,7 @@ const pintarTable = async()=>{
                 <td data-label="Producto">${replaced(element.product_name)}</td>
                 <td data-label="Inventario">${element.quantity}</td>
                 <td>
-                    <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick='infoProducto("${element.store_name}","${element.product_id}","${replaced(element.product_name)}","${element.quantity}")'>
+                    <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}" onclick='${()=>infoProducto(element.store_name, element.product_id, replaced(element.product_name), element.quantity)}'>
                         Ver información
                     </button>
                 </td>
