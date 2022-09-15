@@ -18,6 +18,8 @@ const pool = new Pool({
 // });
 
 
+
+
 export const getStores = async() => {
 
     const result = await pool.query(
@@ -66,7 +68,7 @@ export const getAllOrdenes = async() => {
 export const getOrdenes = async (category_id="1", store_id="1", brand_name="Electra" )  => {
     try {
         const result = await pool.query(
-            `select st.store_name, p.product_id, p.product_name , s.quantity from categories c 
+            `select st.store_name, p.product_id, p.product_name , s.quantity, p.list_price from categories c 
             inner join products p on (p.category_id = c.category_id) 
             inner join stocks s on (s.product_id = p.product_id) 
             inner join stores st on (st.store_id = s.store_id) 
@@ -105,6 +107,77 @@ export const getMarcas = async ()  => {
     );
     const ordenes = result.rows
     return ordenes
+}
+
+export const  getUsuario = async ( email, password ) =>{
+    try {
+        const result = await pool.query(
+         `SELECT * FROM staffs WHERE email = '${email}' AND password = '${password}'`
+        );
+        console.log('Salida de Usuario-->', result.rows[0] )
+        return result.rows[0]
+    } catch (error) {
+        console.log(error);
+        return false
+    }
+}
+
+export const getDataUser = async ( email )  => {
+    try {
+        const result = await pool.query(
+            `select sta.store_id, sta.email, sta.staff_id, st.store_name, p.product_id, p.model_year, p.product_name , s.quantity, p.list_price from categories c 
+            inner join products p on (p.category_id = c.category_id) 
+            inner join stocks s on (s.product_id = p.product_id) 
+            inner join stores st on (st.store_id = s.store_id) 
+            inner join staffs sta on (sta.store_id = s.store_id) 
+            WHERE sta.email like '%${email}%'
+            order by p.product_name asc;`
+        );
+    
+        const ordenes = result.rows
+        return ordenes
+    } catch (error) {
+        console.log(error)
+    }
+   
+
+}
+
+export const editarProducto = async( producto ) =>{
+
+    const values = Object.values( producto )
+    console.log( 'Salida de values', values )
+
+    // Salida de values [
+    //     '257',
+    //     "Electra Amsterdam Fashion 3i Ladies' - 2017/20188",
+    //     '1',
+    //     '1',
+    //     '20188',
+    //     '900'
+    //   ]
+
+    const consulta  = {
+        text:"UPDATE products SET product_name=$2, brand_id=$3, category_id=$4, model_year=$5, list_price=$6 WHERE product_id = $1 RETURNING *;",
+        values // [ '21', 'Titulo 1000','Esta es la descripcion' ]
+    }
+
+    const result = await pool.query(consulta)
+    return result
+}
+
+export const editarStock = async( stock ) =>{
+
+    const values = Object.values( stock )
+    console.log( 'Salida de values stock', values )
+    //Salida de values stock [ 1, '257', '25' ]
+    const consulta  = {
+        text:"UPDATE stocks SET quantity=$3 WHERE store_id=$1 AND product_id=$2 RETURNING *;",
+        values // [ '21', 'Titulo 1000','Esta es la descripcion' ]
+    }
+
+    const result = await pool.query(consulta)
+    return result
 }
 
 

@@ -3,12 +3,26 @@ import { create } from 'express-handlebars';
 // import jwt from "jsonwebtoken";
 import { fileURLToPath } from 'url'
 import { dirname } from "path";
+import jwt from "jsonwebtoken";
 import bodyParser from 'body-parser';
+
 // import expressFileUpload from 'express-fileupload';
-import { getAllOrdenes ,getOrdenes, getCategorias, getTiendas, getMarcas,getProductos, getStores } from './consultas.js'
+import { getUsuario, 
+    getAllOrdenes,
+    getOrdenes,
+    getCategorias,
+    getTiendas,
+    getMarcas,
+    getProductos,
+    getStores,
+    getDataUser,
+    editarProducto,
+    editarStock } from './consultas.js';
+    
 import axios from 'axios';
 const __filename = fileURLToPath( import.meta.url )
 const __dirname = dirname( __filename )
+const secretKey = "claveSecreta";
 
 const app = express();
 console.clear()
@@ -43,8 +57,8 @@ app.set("view engine","handlebars");
 
 
 const HATEOASV1 = async() =>{
+    // const salida = await axios.get(`https://app-shopbikes.herokuapp.com/stores`)
     const salida = await axios.get(`https://app-shopbikes.herokuapp.com/stores`)
-    // const salida = await axios.get(`http://localhost:3000/stores`)
     return salida  
 }
 
@@ -53,6 +67,14 @@ app.get('/', async(req,res)=>{
     res.render("admin",{
         layout:"home",
         title:"Sistema de búsqueda de ordenes",
+    })
+})
+
+app.get('/logout', async(req,res)=>{
+    res.render("dashboard",{
+        layout:"home",
+        title:"Sistema de búsqueda de ordenes",
+        logout:"Su sesión ha caducado."
     })
 })
 
@@ -67,7 +89,6 @@ app.get('/APIv1', async(req,res)=>{
 // Ruta que recibe los criterios del form
 app.post('/ordenes', async(req,res)=>{
     const { category_id, store_id , brand_name } = req.body
-    console.log('Salida de req.body-->', category_id, store_id , brand_name )
     const ordenes = await getOrdenes( category_id, store_id , brand_name );
     res.send(ordenes)
 })
@@ -112,8 +133,8 @@ app.get('/api/v1/stores',(req,res)=>{
             const dataFiltrada = rest.map(element => {
                 return {
                     store_name:element.store_name,
+                    //src:`https://app-shopbikes.herokuapp.com/api/v1/store/${element.store_id}`,
                     src:`https://app-shopbikes.herokuapp.com/api/v1/store/${element.store_id}`,
-                    //src:`http://localhost:3000/${element.store_id}`,
                 }
             })
             
@@ -136,6 +157,96 @@ app.get("/api/v1/store/:id", (req,res)=>{
             res.send(hola)
         })
 })
+
+// ACCESO LOGIN
+app.post("/verify", async ( req,res ) =>{
+    // Primero cecuperamos los datos enviados desde el Fron o sea Login
+    const { email, password } = req.body;
+    console.log('Salida de email y password-->',  email, password)
+    const user = await getUsuario( email, password );
+
+    console.log('Salida de user desde server', user)
+    if(user){
+        console.log('Salida de user.auth desde server', user.active )
+        if(user.active){
+            // Creamos un Token
+            const token = jwt.sign( 
+            {
+                exp: Math.floor( Date.now() / 1000 ) + 300,
+                data:user
+            },
+            secretKey 
+            );
+            res.send(token)
+        }else{
+            res.status(401).send({
+                error:"Este usuario aún no ha sido validado para subir imagenes",
+                code:404
+            })
+        }
+    }else{
+        res.status(404).send({
+            error:"Este usuario no esta registrado en la base de datos",
+            code:404
+        })
+    }
+
+})
+
+app.get('/admin', (req,res) => {
+
+    const { token } = req.query
+    // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTkxOTI0MzEsImRhdGEiOnsiaWQiOjIxLCJlbWFpbCI6ImdhYnJpZWxhNzNAZ21haWwuY29tIiwibm9tYnJlIjoiR2FicmllbGEiLCJwYXNzd29yZCI6IjEyMzQiLCJhdXRoIjp0cnVlfSwiaWF0IjoxNjU5MTkyMzExfQ.K5u8S0N6uFHbXW0lhtOYLHLHLVgrgG2iwQK6nAuEe3g
+    jwt.verify( token, secretKey, async( err, decoded )=>{
+
+        if(err){
+            // res.status(401).send({
+            //     error : "401 Unauthorized",
+            //     message : "Usted no está autorizado para estar aquí",
+            //     token_error : err.message,
+            //     code:404
+            // })
+
+            res.redirect('/')
+
+        }else{
+
+            const dataUser = await getDataUser( decoded.data.email );
+    
+            console.log('Salida dataUser-->',dataUser)
+            res.render("dashboard",{
+                layout:"home",
+                title:`Bienvenid@ ${decoded.data.first_name}`,
+                nombre: decoded.data.first_name,
+                logout:"Su sesión va expirar en menos",
+                infoUser:dataUser
+            })
+            
+        }
+        
+    })
+})
+
+app.post('/user', async(req,res)=>{
+    const { email } = req.body
+    const dataUser = await getDataUser( email );
+    res.send(dataUser)
+})
+
+// Ruta para editar producto
+app.put('/producto',async(req,res)=>{
+    const producto  = req.body
+    const actualizar = await editarProducto(producto)
+    res.send(actualizar)
+})
+
+// Ruta para editar stock
+app.put('/stock',async(req,res)=>{
+    const stock  = req.body
+    const actualizar = await editarStock(stock)
+    res.send(actualizar)
+})
+
 
 app.listen(process.env.PORT || 3000 )
 console.log('Servidor arriba 🚀 en el puerto', process.env.PORT || 3000  )

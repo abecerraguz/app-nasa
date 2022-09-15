@@ -52,7 +52,7 @@
         let nombre = document.querySelector("#nombre").value
         let password = document.querySelector("#password").value
 
-        axios.post('http://localhost:3000/usuarios', {
+        axios.post('https://app-shopbikes.herokuapp.com/usuarios', {
             email,
             nombre,
             password
@@ -62,32 +62,13 @@
                 $('#mensaje').modal('toggle');
             setTimeout(()=>{
                 $('#mensaje').modal('toggle'); 
-                 location.href = "http://localhost:3000/login"
+                 location.href = "https://app-shopbikes.herokuapp.com/login"
             },5000)
         })
         .catch((error) => {
             console.log(error);
         });
 
-
-        {{!-- 
-            fetch("http://localhost:3000/usuarios",{
-                method:"POST",
-                body: JSON.stringify({ email,nombre,password }),
-                headers:{
-                    'Content-type': 'application/json'
-                }
-            }).then( res => res.json() )
-                .then( data =>{
-                    console.log('Salida de data', data)
-                })
-            
-            
-            .then( res => res.json()).then( data =>{
-                console.log('Salida de data', data)
-                alert("Usuario registrado con éxito!!")
-            }).catch( e => console.log(e)) 
-        --}}
 
     })
 </script>

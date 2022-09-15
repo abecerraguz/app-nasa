@@ -1,12 +1,12 @@
 const replaceQuotes = (str)=>{
     const out = str
-    if(/'/g.test(str)){
-        const replaced = str.replace(/'/g,`&apos;`);
+    if(/'/g.test(out)){
+        const replaced = out.replace(/'/g,`\'`);
         return replaced
     }
 
-    if(/"/g.test(str)){
-        const replaced = str.replace(/"/g ,`&quot;`);
+    if(/"/g.test(out)){
+        const replaced = out.replace(/"/g ,`\"`);
         return replaced
     }
     return out

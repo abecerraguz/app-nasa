@@ -1,9 +1,11 @@
 import * as UI from './interfaz.js'
-import infoProducto from './infoProducto.js';
+import { infoProducto } from './infoProducto.js';
 import replaceQuotes from './replaceQuotes.js';
+
 
 const printTable = async ( category_id, store_id, brand_name ) => {
     UI.loading.style.display = "flex";
+    //await axios.post('https://app-shopbikes.herokuapp.com/ordenes',{
     await axios.post('https://app-shopbikes.herokuapp.com/ordenes',{
         category_id,
         store_id,
@@ -15,12 +17,13 @@ const printTable = async ( category_id, store_id, brand_name ) => {
             if(info.length != 0){
                 UI.infoTable.innerHTML=``
                 info.forEach(element =>{
+                    // console.log('Salida de element--->', element)
                     UI.infoTable.innerHTML+=`
                     <tr>
                     <td data-label="Tienda">${element.store_name}</td>
-                    <td data-label="ID">${element.product_id}</td>
                     <td data-label="Producto">${replaceQuotes(element.product_name)}</td>
                     <td data-label="Inventario">${element.quantity}</td>
+                    <td data-label="ID">${element.list_price}</td>
                     <td>
                         <button type="button" class="btn btn-danger btn-sm" id="${element.product_id}">
                             Ver información
@@ -47,7 +50,8 @@ const printTable = async ( category_id, store_id, brand_name ) => {
                     </td>
                 </tr>`
             }
-
         })    
 }
+
+
 export default printTable

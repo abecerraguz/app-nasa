@@ -89,3 +89,29 @@ inner join stores st on (st.store_id = s.store_id)
 inner join brands br on (br.brand_id = p.brand_id)
 inner join categories cat on (cat.category_id = p.category_id)
 order by p.product_name asc;
+
+-- AGREGAR LA COLUMNA PASSWORD
+ALTER TABLE staffs
+ADD COLUMN password VARCHAR(255);
+
+-- USAR LA EXTENSION CREATE EXTENSION pgcrypto;
+-- http://rafinguer.blogspot.com/2019/08/encriptacion-de-columnas-en-postgresql.html
+-- CREATE EXTENSION pgcrypto;
+
+CREATE TABLE users(nombre VARCHAR(50), password VARCHAR(255));
+INSERT INTO users ( nombre, password ) VALUES ('Rafael', PGP_SYM_ENCRYPT('mypassword','AES_KEY'));
+SELECT nombre, pgp_sym_decrypt(password::bytea,'AES_KEY') FROM users;
+UPDATE staffs SET password=(PGP_SYM_ENCRYPT('123456', 'AES_KEY'));
+
+
+
+select sta.store_id, sta.email, sta.staff_id, st.store_name, p.product_id, p.product_name , p.list_price ,s.quantity from categories c 
+inner join products p on (p.category_id = c.category_id) 
+inner join stocks s on (s.product_id = p.product_id) 
+inner join stores st on (st.store_id = s.store_id) 
+inner join staffs sta on (sta.store_id = s.store_id) 
+WHERE sta.email like '%jannette.david@bikes.shop%'
+order by p.product_name asc;
+
+SELECT * FROM staffs;
+

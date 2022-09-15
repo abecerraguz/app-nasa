@@ -23,9 +23,9 @@
                 <thead>
                     <tr>
                     <th scope="col">Tienda</th>
-                    <th scope="col">ID</th>
                     <th scope="col">Producto</th>
-                    <th scope="col">Inventario</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Precio</th>
                     <th scope="col">Acción</th>
                     </tr>
                 </thead>
@@ -43,15 +43,32 @@
 <div class="modal fade" id="mensajesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
+            {{#unless logout}}
             <div class="modal-header">
                 <h5 class="infoTienda my-0"></h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body my-2">
-                
+            {{/unless}}
+            <div class="modal-body text-center text-uppercase my-2">
+                {{#if logout}}
+                    {{> partials/logout}}
+                {{/if}}
             </div>
             </div>
         </div>
 </div>
+
+ <!-- Modal Mensaje -->
+<div class="modal fade" id="mensajeLogin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-body text-center text-uppercase my-2">
+                <span id="mensaje">Autenticado con éxito! Serás redirigido a tu perfil de usuario, Tu token está en SessionStorage!!</span>
+            </div>
+            </div>
+    </div>
+</div>
     
 
+{{!-- Vinculamos Javascript personal --}}
+<script type="module" src="/js/app.js"></script>
