@@ -94,6 +94,14 @@ order by p.product_name asc;
 ALTER TABLE staffs
 ADD COLUMN password VARCHAR(255);
 
+alter table staffs alter column password set default '1234';
+ALTER TABLE ONLY staffs ALTER COLUMN password SET DEFAULT '1234';
+UPDATE staffs SET password='1234' WHERE staff_id=7;
+UPDATE staffs SET password='1234' WHERE staff_id=8;
+UPDATE staffs SET password='1234' WHERE staff_id=9;
+UPDATE staffs SET password='1234' WHERE staff_id=10;
+
+
 -- USAR LA EXTENSION CREATE EXTENSION pgcrypto;
 -- http://rafinguer.blogspot.com/2019/08/encriptacion-de-columnas-en-postgresql.html
 -- CREATE EXTENSION pgcrypto;
@@ -114,4 +122,6 @@ WHERE sta.email like '%jannette.david@bikes.shop%'
 order by p.product_name asc;
 
 SELECT * FROM staffs;
+
+-- psql --host ec2-3-225-110-188.compute-1.amazonaws.com --port 5432 --username plhgziwympewbk --password --dbname d8e23pirsgbvqj
 

@@ -22,7 +22,8 @@ infoButton.forEach( element => {
         const infoId = e.target.id
         const email = e.target.name
         //axios.get('https://app-shopbikes.herokuapp.com/marcas')
-        axios.post('https://app-shopbikes.herokuapp.com/user',{
+        //http://localhost:3000/
+        axios.post('http://localhost:3000//user',{
          email   
         })
         .then( result =>{
@@ -68,14 +69,16 @@ infoButton.forEach( element => {
                 if(selectCategoria != -1 && brandNameSelect != -1){
             
                     //axios.get('https://app-shopbikes.herokuapp.com/marcas')
-                    axios.put('https://app-shopbikes.herokuapp.com/stock',{
+                    //http://localhost:3000/
+                    axios.put('http://localhost:3000/stock',{
                         idTienda,
                         infoId,
                         quantity
                     })
             
                     //axios.get('https://app-shopbikes.herokuapp.com/marcas')
-                    axios.put('https://app-shopbikes.herokuapp.com/producto',{
+                    //http://localhost:3000/
+                    axios.put('http://localhost:3000/producto',{
                         infoId,
                         nombreProducto,
                         brandNameSelect,
@@ -114,7 +117,8 @@ infoButton.forEach( element => {
 
 // Insert option categorias
 //axios.get('https://app-shopbikes.herokuapp.com/categorias')
-axios.get('https://app-shopbikes.herokuapp.com/categorias')
+//http://localhost:3000/
+axios.get('http://localhost:3000/categorias')
     .then( result =>{
         const categorias = result.data
         categorias.forEach( element => {
@@ -124,7 +128,8 @@ axios.get('https://app-shopbikes.herokuapp.com/categorias')
 
 // Insert option marcas
 //axios.get('https://app-shopbikes.herokuapp.com/marcas')
-axios.get('https://app-shopbikes.herokuapp.com/marcas')
+// http://localhost:3000/
+axios.get('http://localhost:3000/marcas')
     .then( result =>{
         const marcas = result.data
         marcas.forEach( element => {

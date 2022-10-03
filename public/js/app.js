@@ -17,31 +17,36 @@ const verificacion = ()=>{
 
     let email = document.querySelector("#email").value
     let password = document.querySelector("#password").value
-
-    axios.post('/verify',{
-        email,
-        password
-    }).then( result =>{
-        const token = result.data
-        $('#mensajeLogin').modal('toggle');
-        sessionStorage.setItem('token', JSON.stringify(token) )
-        console.log( 'Salida de token', token )
-        setTimeout(()=>{
-          $('#mensajeLogin').modal('toggle'); 
-          window.location.href = `/admin?token=${token}`
-        },3000)   
-    })
-    .catch( ({response}) =>{
-        
-        console.log( 'Salida de response-->', response )
-        $('#mensajeLogin').modal('toggle');
-        $('#mensaje').html(`${response.data.error}`)
-
-        setTimeout(()=>{
-          $('#mensajeLogin').modal('toggle'); 
-        },3000)
+    if( email&&password ){
+        axios.post('/verify',{
+            email,
+            password
+        }).then( result =>{
+            const token = result.data
+            $('#mensajeLogin').modal('toggle');
+            sessionStorage.setItem('token', JSON.stringify(token) )
+            console.log( 'Salida de token', token )
+            setTimeout(()=>{
+              $('#mensajeLogin').modal('toggle'); 
+              window.location.href = `/admin?token=${token}`
+            },3000)   
+        })
+        .catch( ({response}) =>{
             
-    })        
+            console.log( 'Salida de response-->', response )
+            $('#mensajeLogin').modal('toggle');
+            $('#mensaje').html(`${response.data.error}`)
+    
+            setTimeout(()=>{
+              $('#mensajeLogin').modal('toggle'); 
+            },3000)
+                
+        }) 
+    }else{
+        $('#mensajeLogin').modal('toggle');
+        $('#mensaje').html(`Debe ingresar usuario y contraseña`)
+    }
+       
 
 }
 
@@ -54,7 +59,8 @@ UI.enviar.addEventListener('click', async(e)=>{
 
 // Insert option de categoria 
 //axios.get('https://app-shopbikes.herokuapp.com/categorias')
-axios.get('https://app-shopbikes.herokuapp.com/categorias')
+// http://localhost:3000/
+axios.get('http://localhost:3000/categorias')
     .then( result =>{
         const categorias = result.data
         categorias.forEach( element => {
@@ -63,8 +69,9 @@ axios.get('https://app-shopbikes.herokuapp.com/categorias')
 })
 
 // Insert option tiendas
-//axios.get('https://app-shopbikes.herokuapp.com/tiendas')
-axios.get('https://app-shopbikes.herokuapp.com/tiendas')
+// axios.get('https://app-shopbikes.herokuapp.com/tiendas')
+// http://localhost:3000/
+axios.get('http://localhost:3000/tiendas')
     .then( result =>{
         const tiendas = result.data
         tiendas.forEach( element => {
@@ -74,7 +81,8 @@ axios.get('https://app-shopbikes.herokuapp.com/tiendas')
 
 // Insert option marcas
 //axios.get('https://app-shopbikes.herokuapp.com/marcas')
-axios.get('https://app-shopbikes.herokuapp.com/marcas')
+// http://localhost:3000/
+axios.get('http://localhost:3000/marcas')
     .then( result =>{
         const marcas = result.data
         marcas.forEach( element => {
