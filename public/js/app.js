@@ -17,36 +17,31 @@ const verificacion = ()=>{
 
     let email = document.querySelector("#email").value
     let password = document.querySelector("#password").value
-    if( email&&password ){
-        axios.post('/verify',{
-            email,
-            password
-        }).then( result =>{
-            const token = result.data
-            $('#mensajeLogin').modal('toggle');
-            sessionStorage.setItem('token', JSON.stringify(token) )
-            console.log( 'Salida de token', token )
-            setTimeout(()=>{
-              $('#mensajeLogin').modal('toggle'); 
-              window.location.href = `/admin?token=${token}`
-            },3000)   
-        })
-        .catch( ({response}) =>{
-            
-            console.log( 'Salida de response-->', response )
-            $('#mensajeLogin').modal('toggle');
-            $('#mensaje').html(`${response.data.error}`)
-    
-            setTimeout(()=>{
-              $('#mensajeLogin').modal('toggle'); 
-            },3000)
-                
-        }) 
-    }else{
+
+    axios.post('/verify',{
+        email,
+        password
+    }).then( result =>{
+        const token = result.data
         $('#mensajeLogin').modal('toggle');
-        $('#mensaje').html(`Debe ingresar usuario y contraseña`)
-    }
-       
+        sessionStorage.setItem('token', JSON.stringify(token) )
+        console.log( 'Salida de token', token )
+        setTimeout(()=>{
+          $('#mensajeLogin').modal('toggle'); 
+          window.location.href = `/admin?token=${token}`
+        },3000)   
+    })
+    .catch( ({response}) =>{
+        
+        console.log( 'Salida de response-->', response )
+        $('#mensajeLogin').modal('toggle');
+        $('#mensaje').html(`${response.data.error}`)
+
+        setTimeout(()=>{
+          $('#mensajeLogin').modal('toggle'); 
+        },3000)
+            
+    })        
 
 }
 
