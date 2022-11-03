@@ -22,10 +22,10 @@
                     {{#each infoUsers}}
 
                     <tr>
-                        <td data-label="Tienda">{{this.first_name}}</td>
-                        <td data-label="Producto">{{this.last_name}}</td>
-                        <td data-label="ID">{{this.email}}</td>
-                        <td data-label="Inventario">{{this.phone}}</td>
+                        <td data-label="NOMBRE">{{this.first_name}}</td>
+                        <td data-label="APELLIDO">{{this.last_name}}</td>
+                        <td data-label="EMAIL">{{this.email}}</td>
+                        <td data-label="CELULAR">{{this.phone}}</td>
                         <td><input class="form-check-input" type="checkbox" {{#if this.active}}checked {{/if}} id="{{this.staff_id}}"></td>
                         <td>
                             {{!-- // infoProducto(buscar.store_name, buscar.product_id, replaceQuotes(buscar.product_name), buscar.quantity) --}}

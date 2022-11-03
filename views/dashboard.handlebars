@@ -21,10 +21,10 @@
 
                     {{#each infoUser}}
                     <tr>
-                        <td data-label="Tienda">{{this.store_name}}</td>
-                        <td data-label="Producto">{{this.product_name}}</td>
-                        <td data-label="ID">{{this.model_year}}</td>
-                        <td data-label="Inventario">{{this.quantity}}</td>
+                        <td data-label="TIENDA">{{this.store_name}}</td>
+                        <td data-label="PRODUCTO">{{this.product_name}}</td>
+                        <td data-label="AÑO">{{this.model_year}}</td>
+                        <td data-label="STOCK">{{this.quantity}}</td>
                         <td>
                             {{!-- // infoProducto(buscar.store_name, buscar.product_id, replaceQuotes(buscar.product_name), buscar.quantity) --}}
                             <button type="button" name="{{this.email}}" class="btn btn-danger btn-sm" id="{{this.product_id}}">
