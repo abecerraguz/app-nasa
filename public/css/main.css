@@ -640,7 +640,7 @@ li.nav-item.closeSesion img{
         background: red;
     }
 
-    ul.navbar-nav.ms-md-auto li.nav-item.user {
+    ul.navbar-nav.ms-md-auto li.nav-item.user, ul.navbar-nav.ms-md-auto li.nav-item.closeSesion  {
         display: flex; 
         justify-content:flex-start; 
         align-items: center; 
@@ -648,6 +648,8 @@ li.nav-item.closeSesion img{
         padding: 0 1rem;
         border-right: none;
     }
+
+    
     
 
 }
