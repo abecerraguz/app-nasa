@@ -637,7 +637,7 @@ li.nav-item.closeSesion img{
 
     ul.navbar-nav.ms-md-auto {
         display: block;
-        background: red;
+        background: transparent;
     }
 
     ul.navbar-nav.ms-md-auto li.nav-item.user, ul.navbar-nav.ms-md-auto li.nav-item.closeSesion  {
@@ -649,7 +649,7 @@ li.nav-item.closeSesion img{
         border-right: none;
     }
 
-    
+
     
 
 }
