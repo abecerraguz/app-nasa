@@ -218,7 +218,7 @@ export const editarStaffs = async( users ) =>{
 export const nuevoUsuario = async ( nombre, apellido, email, phone, tienda=1, active=0, password )  => {
 
     const result = await pool.query(
-        `INSERT INTO staffs ( staff_id, first_name, last_name, email ,phone, active, store_id, manager_id, _password ) values ( nextval('incremet_id'), '${nombre}', '${apellido}', '${email}', '${phone}', ${active}, ${tienda}, 1, '${password}' ) RETURNING *`
+        `INSERT INTO staffs ( staff_id, first_name, last_name, email ,phone, active, store_id, manager_id, _password ) values ( nextval('staff_id'), '${nombre}', '${apellido}', '${email}', '${phone}', ${active}, ${tienda}, 1, '${password}' ) RETURNING *`
     );
 
     const usuario = result.rows[0]

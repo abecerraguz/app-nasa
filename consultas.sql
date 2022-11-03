@@ -133,3 +133,14 @@ SELECT * FROM staffs;
 
 ALTER TABLE staffs RENAME COLUMN password TO _password;
 
+-- Se crea una secuencia
+create sequence staff_id
+  minvalue 11
+  maxvalue 999999
+  increment by 1;
+
+-- Elimina una secuencia
+DROP SEQUENCE staff_id;
+
+DELETE FROM staffs WHERE staff_id = '1000';
+
