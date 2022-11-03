@@ -638,15 +638,18 @@ li.nav-item.closeSesion img{
     ul.navbar-nav.ms-md-auto {
         display: block;
         background: transparent;
+        margin-top: 1rem;
     }
 
     ul.navbar-nav.ms-md-auto li.nav-item.user, ul.navbar-nav.ms-md-auto li.nav-item.closeSesion  {
-        display: flex; 
-        justify-content:flex-start; 
-        align-items: center; 
-        height: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 35px;
         padding: 0 1rem;
         border-right: none;
+        padding: 0.5rem 1rem;
+        border-bottom: 1px solid #ffffff4a;
     }
 
 
