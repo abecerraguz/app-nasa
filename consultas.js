@@ -61,10 +61,10 @@ export const getAllOrdenes = async() => {
 
 }
 
-
-
 export const getOrdenes = async (category_id="1", store_id="1", brand_name="Electra" )  => {
+   
     try {
+
         const result = await pool.query(
             `select st.store_name, p.product_id, p.product_name , s.quantity, p.list_price from categories c 
             inner join products p on (p.category_id = c.category_id) 
@@ -73,7 +73,7 @@ export const getOrdenes = async (category_id="1", store_id="1", brand_name="Elec
             where c.category_id = ${category_id} and s.store_id = ${store_id} and p.product_name like '%${brand_name}%'
             order by c.category_id asc;`
         );
-    
+            
         const ordenes = result.rows
         return ordenes
     } catch (error) {
@@ -110,7 +110,7 @@ export const getMarcas = async ()  => {
 export const  getUsuario = async ( email, password ) =>{
     try {
         const result = await pool.query(
-         `SELECT * FROM staffs WHERE email = '${email}' AND password = '${password}'`
+         `SELECT * FROM staffs WHERE email = '${email}' AND _password = '${password}'`
         );
         console.log('Salida de Usuario-->', result.rows[0] )
         return result.rows[0]
@@ -137,8 +137,31 @@ export const getDataUser = async ( email )  => {
     } catch (error) {
         console.log(error)
     }
-   
+}
 
+export const getDataUsers = async ()  => {
+    const result = await pool.query(
+        `SELECT * FROM staffs`
+    );
+    const data = result.rows
+    return data
+}
+
+export const setUsuarioStatus = async( id, auth)=>{
+
+    console.log('Salida de id--->', id )
+    console.log('Salida de auth--->', auth )
+
+    try {
+        const result = await pool.query(
+            `UPDATE staffs SET active = ${auth} WHERE staff_id = ${id} RETURNING *`
+        );
+        const usuario = result.rows[0]
+        return usuario
+    } catch (error) {
+        console.log(error)
+        return false
+    }
 }
 
 export const editarProducto = async( producto ) =>{
@@ -176,6 +199,42 @@ export const editarStock = async( stock ) =>{
 
     const result = await pool.query(consulta)
     return result
+}
+
+export const editarStaffs = async( users ) =>{
+
+    const values = Object.values( users )
+    console.log( 'Salida de values stock', values )
+    //Salida de values stock [ 1, '257', '25' ]
+    const consulta  = {
+        text:'UPDATE staffs SET first_name=$2, last_name = $3, email = $4, phone=$5, active=$6, store_id=$7, manager_id=$8, _password=$9  WHERE staff_id=$1 RETURNING *;',
+        values // [ '21', 'Titulo 1000','Esta es la descripcion' ]
+    }
+
+    const result = await pool.query(consulta)
+    return result
+}
+
+export const nuevoUsuario = async ( nombre, apellido, email, phone, tienda=1, active=0, password )  => {
+
+    const result = await pool.query(
+        `INSERT INTO staffs ( staff_id, first_name, last_name, email ,phone, active, store_id, manager_id, _password ) values ( nextval('incremet_id'), '${nombre}', '${apellido}', '${email}', '${phone}', ${active}, ${tienda}, 1, '${password}' ) RETURNING *`
+    );
+
+    const usuario = result.rows[0]
+    return usuario
+
+}
+
+export const deleteUsuario = async ( id ) => {
+    console.log('Salida de id--->',id)
+    try {
+        const result = await pool.query(`DELETE FROM staffs WHERE staff_id = ${id}`)
+        return result
+    } catch ( error ) {
+        console.log(error)
+        return error
+    }
 }
 
 

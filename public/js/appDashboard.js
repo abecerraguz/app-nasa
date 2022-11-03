@@ -21,9 +21,10 @@ infoButton.forEach( element => {
         e.preventDefault();
         const infoId = e.target.id
         const email = e.target.name
-        //axios.get('https://app-shopbikes.herokuapp.com/marcas')
-        //http://localhost:3000/
-        axios.post('http://localhost:3000//user',{
+        //axios.get('https://app-shopbikes.herokuapp.commarcas')
+        //https://app-shopbikes.herokuapp.com/
+        axios.post('https://app-shopbikes.herokuapp.com/user',{
+        //  infoId,
          email   
         })
         .then( result =>{
@@ -66,19 +67,19 @@ infoButton.forEach( element => {
                     UI.brandNameSelect.style.marginBottom = '1rem';
                 })
             
-                if(selectCategoria != -1 && brandNameSelect != -1){
+                if( selectCategoria != -1 && brandNameSelect != -1){
             
-                    //axios.get('https://app-shopbikes.herokuapp.com/marcas')
-                    //http://localhost:3000/
-                    axios.put('http://localhost:3000/stock',{
+                    //axios.get('https://app-shopbikes.herokuapp.commarcas')
+                    //https://app-shopbikes.herokuapp.com/
+                    axios.put('https://app-shopbikes.herokuapp.com/stock',{
                         idTienda,
                         infoId,
                         quantity
                     })
             
-                    //axios.get('https://app-shopbikes.herokuapp.com/marcas')
-                    //http://localhost:3000/
-                    axios.put('http://localhost:3000/producto',{
+                    //axios.get('https://app-shopbikes.herokuapp.commarcas')
+                    //https://app-shopbikes.herokuapp.com/
+                    axios.put('https://app-shopbikes.herokuapp.com/producto',{
                         infoId,
                         nombreProducto,
                         brandNameSelect,
@@ -116,9 +117,9 @@ infoButton.forEach( element => {
 
 
 // Insert option categorias
-//axios.get('https://app-shopbikes.herokuapp.com/categorias')
-//http://localhost:3000/
-axios.get('http://localhost:3000/categorias')
+//axios.get('https://app-shopbikes.herokuapp.comcategorias')
+//https://app-shopbikes.herokuapp.com/
+axios.get('https://app-shopbikes.herokuapp.com/categorias')
     .then( result =>{
         const categorias = result.data
         categorias.forEach( element => {
@@ -127,9 +128,9 @@ axios.get('http://localhost:3000/categorias')
 })
 
 // Insert option marcas
-//axios.get('https://app-shopbikes.herokuapp.com/marcas')
-// http://localhost:3000/
-axios.get('http://localhost:3000/marcas')
+//axios.get('https://app-shopbikes.herokuapp.commarcas')
+// https://app-shopbikes.herokuapp.com/
+axios.get('https://app-shopbikes.herokuapp.com/marcas')
     .then( result =>{
         const marcas = result.data
         marcas.forEach( element => {

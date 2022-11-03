@@ -1,0 +1,269 @@
+{{> partials/navbar }}
+
+<div class="container" id="despues">
+  
+    <div class="row">
+      {{!-- Inicio de contenedor --}}
+      <div class="contenedor">
+        <div class="table-responsive-sm">
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col" class="maxAncho-10">Nombre</th>
+                    <th scope="col" class="maxAncho-10">Apellido</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Celular</th>
+                    <th scope="col" class="maxAncho-10">Activo</th>
+                    <th scope="col">Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="infoTable">
+
+                    {{#each infoUsers}}
+
+                    <tr>
+                        <td data-label="Tienda">{{this.first_name}}</td>
+                        <td data-label="Producto">{{this.last_name}}</td>
+                        <td data-label="ID">{{this.email}}</td>
+                        <td data-label="Inventario">{{this.phone}}</td>
+                        <td><input class="form-check-input" type="checkbox" {{#if this.active}}checked {{/if}} id="{{this.staff_id}}"></td>
+                        <td>
+                            {{!-- // infoProducto(buscar.store_name, buscar.product_id, replaceQuotes(buscar.product_name), buscar.quantity) --}}
+                            <button type="button" name="{{this.email}}" class="btn btn-danger-usuarios  btn-sm edit" id="{{this.staff_id}}">
+                                Editar
+                            </button>
+                            <button type="button" name="{{this.email}}" class="btn btn-danger-usuarios  btn-sm delete" id="_{{this.staff_id}}">
+                                Eliminar
+                            </button>
+
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+      </div>
+      {{!-- Cierre de contenedor --}}
+    </div>
+
+</div>
+
+
+
+<div class="modal fade" id="infoSesion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            {{#if logout}}
+            <div class="modal-header">
+                <h5 class="infoTienda my-0"></h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            {{/if}}
+            <div class="modal-body text-center text-uppercase my-2">
+                {{#if logout}}
+                    <p>{{> partials/logout}} <span id="result" class="text-danger"></span></p>
+                    <p>Si desea continuar con la sesión </p>
+                    <button type="button" id="nextSesion" class="btn btn-secondary" data-bs-dismiss="modal">Continuar con la sesión</button>
+                {{/if}}
+            </div>
+            {{!-- <div class="modal-footer">
+                {{#if logout}}
+                        <button type="button" id="nextSesion" class="btn btn-secondary" data-bs-dismiss="modal">Continuar con la sesión</button>
+                {{/if}}
+            </div> --}}
+            </div>
+        </div>
+</div>
+
+<!-- Modal Mensaje -->
+<div class="modal fade" id="mensajesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+       
+            <div class="modal-header">
+                <h5 class="infoTienda my-0">
+                    {{#if logout}}
+                        Editar Usuario
+                    {{/if}}
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" id="close"></button>
+            </div>
+            <div class="modal-body text-uppercase my-2">
+
+                <form autocomplete="off" id="formulario">
+                    <small id="alertDangerCategory" class="mt-1 mb-3 text-danger"></small>
+                    <small id="alertDangerBrand" class="mt-1 mb-3 text-danger"></small>
+                    
+                    <div class="row">
+                            <div class="mb-3 col-6">
+                                <label for="year" class="form-label">Nombre</label>
+                                <input type="text" id="name" class="form-control">
+                            </div>
+                            <div class="mb-3 col-6">
+                                <label for="year" class="form-label">Apellido</label>
+                                <input type="text" id="lastName" class="form-control">
+                            </div>
+                    </div>
+                    <div class="row">
+                            <div class="mb-3 col-6">
+                                <label for="year" class="form-label">Email</label>
+                                <input type="text" id="email" class="form-control">
+                            </div>
+                            <div class="mb-3 col-6">
+                                <label for="year" class="form-label">Celular</label>
+                                <input type="text" id="celular" class="form-control">
+                            </div>
+                    </div>
+                     <div class="row">
+                            <div class="mb-3 col-6">
+                                <select class="form-select" id="selectTienda">
+                                    <option value="-1" selected>Tienda a asignar</option>
+                                    <option value="1">Santa Cruz Bikes</option>
+                                    <option value="2">Baldwin Bikes</option>
+                                    <option value="3">Rowlett Bikes</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 col-6">
+                                <select class="form-select" id="selectActive">
+                                    <option value="-1" selected>Activar</option>
+                                    <option value="0">Inactivo</option>
+                                    <option value="1">Activo</option>
+                                </select>
+                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-12">
+                                <label for="year" class="form-label">Pasword</label>
+                                <input type="text" id="password" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-success m-auto text-uppercase editar">Guardar</button>
+                    </div>
+                </form>
+             
+            </div>
+            {{!-- genna.serrano@bikes.shop --}}
+            {{!-- <div class="modal-footer">
+                {{#if logout}}
+                        <button type="button" id="nextSesion" class="btn btn-secondary" data-bs-dismiss="modal">Continuar con la sesión</button>
+                {{/if}}
+            </div> --}}
+            </div>
+        </div>
+</div>
+
+<!-- Modal Mensaje -->
+<div class="modal fade" id="ModalNuevoUsuario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+       
+            <div class="modal-header">
+                <h5 class="infoTienda my-0">
+                    {{#if logout}}
+                        Editar Usuario
+                    {{/if}}
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" id="close"></button>
+            </div>
+            <div class="modal-body text-uppercase my-2">
+
+                <form autocomplete="off" id="formulario">
+                    <small id="alertDangerCategory" class="mt-1 mb-3 text-danger"></small>
+                    <small id="alertDangerBrand" class="mt-1 mb-3 text-danger"></small>
+                    
+                    <div class="row">
+                            <div class="mb-3 col-6">
+                                <label for="year" class="form-label">Nombre</label>
+                                <input type="text" id="registrarNombre" class="form-control">
+                                <small id="errorNombre" class="text-danger border-bottom mt-2"></small>
+                            </div>
+                            <div class="mb-3 col-6">
+                                <label for="year" class="form-label">Apellido</label>
+                                <input type="text" id="registrarApellido" class="form-control">
+                                <small id="errorApellido" class="text-danger border-bottom mt-2"></small>
+                            </div>
+                    </div>
+                    <div class="row">
+                            <div class="mb-3 col-6">
+                                <label for="year" class="form-label">Email</label>
+                                <input type="text" id="registrarEmail" class="form-control">
+                                <small id="errorCorreo" class="text-danger border-bottom mt-2"></small>
+                            </div>
+                            <div class="mb-3 col-6">
+                                <label for="year" class="form-label">Celular</label>
+                                <input type="text" id="registrarCelular" class="form-control">
+                                <small id="errorCelular" class="text-danger border-bottom mt-2"></small>
+                            </div>
+                    </div>
+                    <div class="row">
+                            <div class="mb-3 col-6">
+                                <select class="form-select" id="selectTienda">
+                                    <option value="1" selected>Tienda a asignar</option>
+                                    <option value="1">Santa Cruz Bikes</option>
+                                    <option value="2">Baldwin Bikes</option>
+                                    <option value="3">Rowlett Bikes</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 col-6">
+                                <select class="form-select" id="selectActive">
+                                    <option value="0" selected>Activar</option>
+                                    <option value="0">Inactivo</option>
+                                    <option value="1">Activo</option>
+                                </select>
+                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-12">
+                                <label for="year" class="form-label">Pasword</label>
+                                <input type="text" id="registrarPassword" class="form-control">
+                                <small id="errorClave" class="text-danger border-bottom mt-2"></small>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-success m-auto text-uppercase guardarNuevoUsuario">Guardar</button>
+                    </div>
+                </form>
+             
+            </div>
+            {{!-- genna.serrano@bikes.shop --}}
+            {{!-- <div class="modal-footer">
+                {{#if logout}}
+                        <button type="button" id="nextSesion" class="btn btn-secondary" data-bs-dismiss="modal">Continuar con la sesión</button>
+                {{/if}}
+            </div> --}}
+            </div>
+        </div>
+</div>
+
+
+
+<!-- Modal Mensaje -->
+<div class="modal fade" id="mensajesModalCheck" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center text-uppercase my-2">
+                <span class="mensaje">Usuario Eliminado !!</span>
+            </div>
+            </div>
+    </div>
+</div>
+
+ <!-- Modal Mensaje -->
+{{!-- <div class="modal fade" id="mensajeCrearUsuario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-body text-center text-uppercase my-2">
+                <span class="mensaje"></span>
+            </div>
+            </div>
+    </div>
+</div> --}}
+
+
+
+
+
+
+

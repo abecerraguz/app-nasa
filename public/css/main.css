@@ -132,6 +132,12 @@ body{
 
 .table{
     color: #fff;
+    margin: 1rem 0;
+}
+
+table.table thead{
+    height: 65px;
+    background: #ffffff0f;
 }
 
 table.table tbody#cuerpo tr td:last-child, table.table tbody#cuerpo tr td:nth-child(4) {
@@ -197,12 +203,17 @@ table.table tbody#cuerpo tr td:last-child, table.table tbody#cuerpo tr td:nth-ch
     color: #ff8484!important;
 }
 
+.border-bottom {
+    border-bottom: 1px solid #ffffff4a!important;
+}
+
 .navbar{
     position:fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 999;
+    overflow:visible;
 }
 
 .navbar-dark{
@@ -294,6 +305,7 @@ table {
   table td {
     padding: .625em;
     text-align: center;
+    vertical-align: middle;
   }
   
   table th {
@@ -301,6 +313,13 @@ table {
     letter-spacing: .1em;
     text-transform: uppercase;
   }
+
+  .maxAncho-10{
+    width: 10%;
+  }
+  /* table th:nth-child(5){
+    width: 10%;
+  } */
 
   .btn-danger {
     background: #cd2901;
@@ -313,7 +332,36 @@ table {
     letter-spacing: 1px;
  }
 
- #login-dp {
+ .btn-danger-usuarios {
+    background: #cd2901;
+    padding: 0.6rem 0rem 0.6rem 0rem;
+    border: none;
+    height: 40px;
+    max-width: 30%;
+    margin: 0.3rem auto;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+    color: #fff;
+    letter-spacing: 1px;
+    margin: 0 0.3rem;
+ }
+
+ .btn-danger-usuarios:hover {
+    background: #e14018;
+    padding: 0.6rem 0rem 0.6rem 0rem;
+    border: none;
+    height: 40px;
+    max-width: 30%;
+    margin: 0.3rem auto;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    letter-spacing: 1px;
+    margin: 0 0.3rem;
+ }
+
+#divForm {
     min-width:330px;
     padding: 14px 14px 0;
     overflow: hidden;
@@ -324,7 +372,7 @@ table {
     margin-left: -200px;
  }
 
- #login-dp .row form {
+#divForm .row form {
     /* background: #221c35;
     padding: 2rem 2.5rem; */
     padding: 0;
@@ -378,7 +426,7 @@ select:-webkit-autofill:focus {
     color: #fff;
 }
 
-#ingresar {
+#ingresar,#ingresarRegistro,#nuevoUsuario {
     background: purple;
     border-radius: 0.3rem;
     padding: 0.5rem 0rem 0.5rem 0rem;
@@ -391,7 +439,7 @@ select:-webkit-autofill:focus {
     border: none;
 }
 
-.editar {
+.editar, .guardarNuevoUsuario {
     background: purple;
     border-radius: 0.3rem;
     padding: 0.5rem 0rem 0.5rem 0rem;
@@ -579,5 +627,90 @@ li.nav-item.closeSesion img{
 
 }
 
+.text-white{
+    color: rgba(255,255,255,0.7)!important;
+}
 
+small#errorEmail {
+    padding: 0 0 0.5rem 0.5rem;
+    border-bottom: 1px solid #ffffff4a;
+    /* color: #ff8484!important; */
+}
 
+small#errorPassword {
+    padding: 0 0 0.5rem 0.5rem;
+    border-bottom: 1px solid #ffffff4a;
+    /* color: #ff8484!important; */
+}
+
+.nav-tabs .nav-link.active {
+    color: #fff!important;
+    background-color: purple!important;
+    border: 1px solid transparent!important;
+    margin: 0 0 0 0!important;
+}
+
+.nav-tabs .nav-link {
+    background-color: #ffffff14!important;
+    color: #fff!important;
+    border: 1px solid transparent!important;
+    margin: 0 0 0 0!important;
+}
+
+.nav-tabs .nav-link:hover {
+    background-color: #771977!important;
+    color: #fff!important;
+    border: 1px solid transparent!important;
+    margin: 0 0 0 0!important;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #ffffff36!important;
+    padding: 0 0 0 1rem;
+}
+
+.dropdown{
+    position: relative;
+}
+#divForm{
+    position: absolute;
+    top:41px;
+}
+.hidden{
+    display: none;
+}
+
+.nav-tabs .nav-link.active {
+    border: 1px solid transparent!important;
+}
+
+.nav-tabs .nav-link:hover {
+    border: 1px solid transparent!important;
+   background-color: purple;
+   color: #fff;
+}
+
+.nav-tabs .nav-link {
+    color: #fff;
+}
+
+#ModalNuevoUsuario .form-select, #mensajesModal .form-select {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    -moz-padding-start: calc(0.75rem - 3px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #ffffff;
+    background-color: #ffffff47;
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}

@@ -6,14 +6,14 @@
    
     <div class="row">
       <form autocomplete="off">
-        <h2 class="mt-2 text-center">👽 Bienvenido a LA NASA 👽</h2>
+        <h2 class="mt-2 text-center">Bienvenido Terricola a BikeShop 👽</h2>
         <hr>
          <p class="mt-3">{{> partials/title}}</p>
         <div class="mb-4">
-            <input type="email" class="formInput" id="email" placeholder="Ingrese Email">
+            <input type="email" class="form-control" id="email" placeholder="Ingrese Email">
         </div>
         <div class="mb-4">
-            <input type="password" class="formInput" id="password" placeholder="Ingrese Password">
+            <input type="password" class="form-control" id="password" placeholder="Ingrese Password">
         </div>
         <div class="mb-3">
             <button id="ingresar" class="btn btn-success m-auto text-uppercase">Ingresar</button>
@@ -26,7 +26,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             <div class="modal-body text-center text-uppercase my-2">
-                <span id="mensaje">Autenticado con éxito! Serás redirigido a Evidencias para que cargues tus fotos, Tu token está en SessionStorage!!</span>
+                <span id="mensaje">Autenticado con éxito! Serás redirigido al Dashboard de administración, Tu token está en SessionStorage!!</span>
             </div>
             </div>
         </div>
@@ -34,10 +34,13 @@
 
 
 <script>
+
+   document.querySelector('.contentSpinnerLoading').style.display = 'none';   
    let ingresar = document.querySelector("#ingresar");
 
    ingresar.addEventListener('click',(e)=>{
         e.preventDefault();
+        console.log('Verificar--->', 'FUNCIONA CLICK')
         verificacion();
    })
 
@@ -55,7 +58,7 @@
             sessionStorage.setItem('token', JSON.stringify(token) )
             setTimeout(()=>{
               $('#mensajeLogin').modal('toggle'); 
-              window.location.href = `/evidencias?token=${token}`
+              window.location.href = `/admin?token=${token}`
             },3000)
         })
         .catch( ({response}) =>{

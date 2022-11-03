@@ -49,7 +49,7 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             {{/unless}}
-            <div class="modal-body text-center text-uppercase my-2">
+            <div class="modal-body text-center text-uppercase my-2" id="infoModal">
                 {{#if logout}}
                     {{> partials/logout}}
                 {{/if}}
@@ -63,7 +63,7 @@
     <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             <div class="modal-body text-center text-uppercase my-2">
-                <span id="mensaje">Autenticado con éxito! Serás redirigido a tu perfil de usuario, Tu token está en SessionStorage!!</span>
+                <span class="mensaje">Autenticado con éxito! Serás redirigido a tu perfil de usuario, Tu token está en SessionStorage!!</span>
             </div>
             </div>
     </div>

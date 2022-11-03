@@ -3,7 +3,7 @@ import replaceQuotes from './replaceQuotes.js'
 
 const infoProducto = ( store_name , product_id, product_name, quantity )=>{
     $('#mensajesModal').modal('toggle');
-    UI.modalBody.innerHTML=`<p>En la tienda <span class="text-uppercase text-danger">${store_name}</span> el producto <span class="text-uppercase text-danger">${product_name}</span> tiene un stock de <span class="text-uppercase text-danger">${quantity} bicicletas</span></p>`;
+    UI.infoModalBody.innerHTML=`<p>En la tienda <span class="text-uppercase text-danger">${store_name}</span> el producto <span class="text-uppercase text-danger">${product_name}</span> tiene un stock de <span class="text-uppercase text-danger">${quantity} bicicletas</span></p>`;
     UI.infoTienda.innerHTML=`<h5 class="my-0">Tienda ${store_name}</h5>`      
 }
 
@@ -16,9 +16,9 @@ const editProducto = ( store_name , product_id, product_name, quantity, year, pr
 }
 
 const putProduct = ()=>{
-    // http://localhost:3000/
+    // https://app-shopbikes.herokuapp.com/
     // https://app-shopbikes.herokuapp.com
-    axios.get('http://localhost:3000/producto')
+    axios.get('https://app-shopbikes.herokuapp.com/producto')
     .then( result =>{
         const marcas = result.data
         // console.log('Salida de marcas--->', marcas)

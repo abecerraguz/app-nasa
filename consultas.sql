@@ -125,3 +125,11 @@ SELECT * FROM staffs;
 
 -- psql --host ec2-3-225-110-188.compute-1.amazonaws.com --port 5432 --username plhgziwympewbk --password --dbname d8e23pirsgbvqj
 
+INSERT INTO staffs ( staff_id, first_name, last_name, email ,phone, active, store_id, manager_id, password ) values ( nextval('staff_id'),'Alex', 'Becerra', 'alejandrobecerrabecerra73@gmail.com', '984415629', 1, 1, 1, '123456' );
+SELECT * FROM staffs;
+
+-- mireya.copeland@bikes.shop
+-- @Mi123456
+
+ALTER TABLE staffs RENAME COLUMN password TO _password;
+

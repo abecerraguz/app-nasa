@@ -5,14 +5,14 @@ import replaceQuotes from './replaceQuotes.js';
 
 const printTable = async ( category_id, store_id, brand_name ) => {
     UI.loading.style.display = "flex";
-    //await axios.post('https://app-shopbikes.herokuapp.com/ordenes',{
-    // http://localhost:3000/
-    await axios.post('http://localhost:3000/ordenes',{
+    //await axios.post('https://app-shopbikes.herokuapp.comordenes',{
+    // https://app-shopbikes.herokuapp.com/
+    await axios.post('https://app-shopbikes.herokuapp.com/ordenes',{
         category_id,
         store_id,
         brand_name
     })
-    // await axios.get('http://localhost:3000/ordenes')
+    // await axios.get('https://app-shopbikes.herokuapp.com/ordenes')
         .then( result => {
             const info = result.data
             if(info.length != 0){
