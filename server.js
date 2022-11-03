@@ -62,7 +62,7 @@ app.set("view engine","handlebars");
 
 
 const HATEOASV1 = async () =>{
-    const salida = await axios.get(`https://app-shopbikes.herokuapp.comstores`)
+    const salida = await axios.get(`https://app-shopbikes.herokuapp.com/stores`)
     // const salida = await axios.get(`https://app-shopbikes.herokuapp.com/stores`)
     return salida  
 }
@@ -138,8 +138,8 @@ app.get('/api/v1/stores',(req,res)=>{
             const dataFiltrada = rest.map(element => {
                 return {
                     store_name:element.store_name,
-                    src:`https://app-shopbikes.herokuapp.comapi/v1/store/${element.store_id}`,
-                    //src:`https://app-shopbikes.herokuapp.comapi/v1/store/${element.store_id}`,
+                    src:`https://app-shopbikes.herokuapp.com/api/v1/store/${element.store_id}`,
+                    //src:`https://app-shopbikes.herokuapp.com/api/v1/store/${element.store_id}`,
                 }
             })
             
