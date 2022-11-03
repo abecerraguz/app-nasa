@@ -1,21 +1,21 @@
 import pg from 'pg';
 const { Pool } = pg;
 
-// const pool = new Pool({
-//     // Conección para produccion pero para local o Local
-//     connectionString:process.env.DATABASE_URL,
-//     ssl:{
-//         rejectUnauthorized:false
-//     }
-// });
-
 const pool = new Pool({
-    user: "postgres",
-    host: "localhost",
-    password: "postgres",
-    database: "bikeshop",
-    port: 5432,
+    // Conección para produccion pero para local o Local
+    connectionString:process.env.DATABASE_URL,
+    ssl:{
+        rejectUnauthorized:false
+    }
 });
+
+// const pool = new Pool({
+//     user: "postgres",
+//     host: "localhost",
+//     password: "postgres",
+//     database: "bikeshop",
+//     port: 5432,
+// });
 
 
 export const getStores = async() => {
