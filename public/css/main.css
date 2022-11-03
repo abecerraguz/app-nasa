@@ -495,11 +495,8 @@ li.nav-item.closeSesion img{
     }
 
     .api {
-        padding: 0.5rem 5rem;
+        padding:0;
         background-color:transparent;
-        border-radius: 5px;
-        display: inline-block;
-        margin: 0 0.3rem;
     }
 
     a.nav-link.api {
@@ -510,6 +507,11 @@ li.nav-item.closeSesion img{
 
     li.nav-item {
         border-bottom: 1px solid #ffffff3d;
+        padding: 0 1rem;
+    }
+
+    a.linkShowLink.nav-link.dropdown-toggle {
+        padding: 0.5rem;
     }
 
     .formulario{
@@ -639,8 +641,21 @@ li.nav-item.closeSesion img{
      }
 
     ul.navbar-nav.ms-md-auto {
-        display: flex;
-        justify-content: flex-start;
+        display: block;
+    }
+
+    #divForm {
+        position: absolute;
+        top: 36px;
+        min-width: 100%;
+        width: 100vw;
+        padding: 14px 14px 0;
+        overflow: hidden;
+        background-color: #540454;
+        margin-top: 12px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        margin-left: -185px;
     }
 
 }
