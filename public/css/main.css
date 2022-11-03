@@ -494,26 +494,11 @@ li.nav-item.closeSesion img{
         font-size: 16px;
     }
 
-    .api {
-        padding:0;
-        background-color:transparent;
-    }
-
     a.nav-link.api {
         display: block;
         margin: 0.3rem 0;
-        padding: 0.5rem 0;
+        padding: 0.5rem 1rem;
     }
-
-    li.nav-item {
-        border-bottom: 1px solid #ffffff3d;
-        padding: 0 1rem;
-    }
-
-    a.linkShowLink.nav-link.dropdown-toggle {
-        padding: 0.5rem;
-    }
-
     .formulario{
         flex-direction: column;
     }
@@ -639,24 +624,6 @@ li.nav-item.closeSesion img{
         text-transform: uppercase;
         letter-spacing: 1px;
      }
-
-    ul.navbar-nav.ms-md-auto {
-        display: block;
-    }
-
-    #divForm {
-        position: absolute!important;
-        top: 36px!important;
-        min-width: 100%;
-        width: 100vw;
-        padding: 14px 14px 0;
-        overflow: hidden;
-        background-color: #540454;
-        margin-top: 12px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-        margin-left: -185px;
-    }
 
 }
 
