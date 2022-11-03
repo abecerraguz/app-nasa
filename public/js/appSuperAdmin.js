@@ -4,7 +4,7 @@ import { checkCelular, checkEmail, checkPassword, checkString } from './utilitie
 
 document.querySelector('.contentSpinnerLoading').style.display = 'none'
 const inputCheck = document.querySelectorAll('#infoTable tr td input')
-let nuevoUsuario = document.querySelector('#nuevoUsuario')
+let addUser = document.querySelector('#addUser')
 let eliminarButton = document.querySelectorAll('#infoTable tr td button.delete')
 
 console.log('Salida de UI',UI)
@@ -102,7 +102,7 @@ guardarUsario.addEventListener('click', (e)=>{
 })
 
 // BOTON ACTIVA MODAL NUEVO USUARIO
-nuevoUsuario.addEventListener('click',(e)=>{
+addUser.addEventListener('click',(e)=>{
     e.preventDefault();
     $('#ModalNuevoUsuario').modal('toggle');
     let infoTienda = document.querySelector('#mensajesModal .modal-header h5')

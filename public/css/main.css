@@ -634,6 +634,20 @@ li.nav-item.closeSesion img{
         right: 0;
         width: 100vw;
     }
+
+    ul.navbar-nav.ms-md-auto {
+        display: block;
+        background: red;
+    }
+
+    ul.navbar-nav.ms-md-auto li.nav-item.user {
+        display: flex; 
+        justify-content:flex-start; 
+        align-items: center; 
+        height: auto;
+        padding: 0 1rem;
+        border-right: none;
+    }
     
 
 }

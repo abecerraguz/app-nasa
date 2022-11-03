@@ -13,7 +13,7 @@
                     <th scope="col" class="maxAncho-10">Apellido</th>
                     <th scope="col">Email</th>
                     <th scope="col">Celular</th>
-                    <th scope="col" class="maxAncho-10">Activo</th>
+                    <th scope="col" class="maxAncho-10">Estado</th>
                     <th scope="col">Acción</th>
                     </tr>
                 </thead>
@@ -26,16 +26,14 @@
                         <td data-label="APELLIDO">{{this.last_name}}</td>
                         <td data-label="EMAIL">{{this.email}}</td>
                         <td data-label="CELULAR">{{this.phone}}</td>
-                        <td><input class="form-check-input" type="checkbox" {{#if this.active}}checked {{/if}} id="{{this.staff_id}}"></td>
+                        <td data-label="ESTADO"><input class="form-check-input" type="checkbox" {{#if this.active}}checked {{/if}} id="{{this.staff_id}}"></td>
                         <td>
-                            {{!-- // infoProducto(buscar.store_name, buscar.product_id, replaceQuotes(buscar.product_name), buscar.quantity) --}}
                             <button type="button" name="{{this.email}}" class="btn btn-danger-usuarios  btn-sm edit" id="{{this.staff_id}}">
                                 Editar
                             </button>
                             <button type="button" name="{{this.email}}" class="btn btn-danger-usuarios  btn-sm delete" id="_{{this.staff_id}}">
                                 Eliminar
                             </button>
-
                         </td>
                     </tr>
                     {{/each}}
