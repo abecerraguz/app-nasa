@@ -259,7 +259,8 @@ app.get('/superadmin', (req,res) => {
                 title:`Bienvenid@ ${decoded.data.first_name}`,
                 nombre: decoded.data.first_name,
                 logout:"Su sesión va expirar en menos",
-                infoUsers:dataUsers
+                infoUsers:dataUsers,
+                nuevoUsuario: true
             })
             
         }

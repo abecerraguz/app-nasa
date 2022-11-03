@@ -33,14 +33,16 @@
                   <img width="23" src="img/user.svg" alt="{{> partials/title}}">
                   {{> partials/title}}
               </li>
-              {{#unless logout}}
+
+              {{#if nuevoUsuario}}
               <li class="nav-item user">
                 <a class="nav-link" id="nuevoUsuario" href="/">
                   <img width="20" src="img/user-plus-solid.svg" alt="Nuevo usuario">
                   Crear nuevo usuario
                 </a>
               </li>
-              {{/unless}}
+              {{/if}}
+              
               <li class="nav-item closeSesion">
                 <a class="nav-link" id="closeSesion" href="/">
                   <img width="23" src="img/sign-out.svg" alt="cerrar sesión">
