@@ -12,6 +12,7 @@ body{
     color: #fff;
     font-family: 'roboto_condensedregular', sans-serif;
     letter-spacing: 1px;
+    position: relative;
 }
 
 .row form{
@@ -362,15 +363,15 @@ table {
  }
 
 #divForm {
-    min-width:330px;
-    padding: 14px 14px 0;
-    overflow: hidden;
+    position: absolute;
     background-color: #540454;
-    margin-top:12px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    margin-left: -200px;
- }
+    top: 66px;
+    padding: 1rem;
+    right: 0;
+    width: 310px;
+}
+
+
 
 #divForm .row form {
     /* background: #221c35;
@@ -625,6 +626,16 @@ li.nav-item.closeSesion img{
         letter-spacing: 1px;
      }
 
+     #divForm {
+        position: absolute;
+        background-color: #540454;
+        top: 156px;
+        padding: 1rem;
+        right: 0;
+        width: 100vw;
+    }
+    
+
 }
 
 .text-white{
@@ -670,12 +681,9 @@ small#errorPassword {
 }
 
 .dropdown{
-    position: relative;
+    position:static!important;
 }
-#divForm{
-    position: absolute;
-    top:41px;
-}
+
 .hidden{
     display: none;
 }
