@@ -263,7 +263,7 @@ celularInput.addEventListener('input', (e)=>{
     }else{
         UI.errorCelular.style.display = "block";
         UI.errorCelular.style.color = '#ff8484' 
-        UI.errorCelular.innerHTML = `Debe ingresar un numero de celular correcto`   
+        UI.errorCelular.innerHTML = `Debe ingresar un numero de celular correcto +56(2-9)12345678`   
     }
 })
 
