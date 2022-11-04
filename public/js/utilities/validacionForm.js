@@ -26,7 +26,7 @@ export const checkString = ( val ) => {
 } 
 
 export const checkCelular = ( val ) =>{ 
-    if( /\D*([+56]\d [2-9])(\D)(\d{4})(\D)(\d{4})\D*/.test(val)){ 
+    if( /\D*([+56][2-9])(\d{9})\D*/.test(val)){ 
       return true;
     }else{ 
       return false;
