@@ -1,11 +1,10 @@
 import express from 'express';
 import { create } from 'express-handlebars';
-// import jwt from "jsonwebtoken";
 import { fileURLToPath } from 'url'
 import { dirname } from "path";
 import jwt from "jsonwebtoken";
 import bodyParser from 'body-parser';
-
+import nodemailer from 'nodemailer'
 // import expressFileUpload from 'express-fileupload';
 import { getUsuario, 
     getAllOrdenes,
@@ -47,6 +46,29 @@ app.use('/sweetalert2css',express.static(  `${__dirname}/node_modules/sweetalert
 
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
+
+
+// Uso de Node Mailer
+// Paso 2
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+    user: 'info.bikeshoping@gmail.com',
+    pass: '@#0124bikeshoping',
+    },
+})
+
+let mailOptions = {
+    from: 'info.bikeshoping@gmail.com',
+    to: 'info.bikeshoping@gmail.com',
+    subject: 'Nodemailer Test',
+    text: 'Probando... 1,2,3...',
+}
+
+transporter.sendMail(mailOptions, (err, data) => {
+    if (err) console.log(err)
+    if (data) console.log(data)
+})
 
 // Consfiguramos a travez del metodo create
 // Las vistas hacia Handelbars
