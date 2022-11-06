@@ -117,7 +117,7 @@ const verificacion = ()=>{
             password
         }).then( result =>{
 
-            //console.log('Salida XC--->', result.config.data )
+            console.log('Salida XC--->', result.config.data )
             const admin = JSON.parse(result.config.data)
             const token = result.data
             
