@@ -120,13 +120,14 @@ const verificacion = ()=>{
             //console.log('Salida XC--->', result.config.data )
             const admin = JSON.parse(result.config.data)
             const token = result.data
-            console.log('Salida de admin--->',admin)
+            
             $('#mensajeLogin').modal('toggle');
             sessionStorage.setItem('token', JSON.stringify(token) )
             
-            console.log( 'Salida de admin', admin === 'Adm@123456' )
-            console.log( 'Salida de admin', admin  )
-            console.log( 'Salida de admin', admin.password  )
+            console.log( 'Salida de admin === Adm@123456--->', admin === 'Adm@123456' )
+            console.log( 'Salida de admin--->', admin  )
+            console.log( 'Salida de admin.password--->', admin.password  )
+            console.log('Salida de token--->', token )
 
             if( admin.password === 'Adm@123456'){
                 console.log('Entreeeee')
