@@ -72,7 +72,7 @@ const HATEOASV1 = async () =>{
 app.get('/', ( req, res )=>{
     res.render("admin",{
         layout:"home",
-        title:"Sistema de búsqueda de ordenes",
+        title:"Bienvenido a BikeShop Sistema de búsqueda de ordenes",
     })
 })
 
