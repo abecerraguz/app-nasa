@@ -657,7 +657,7 @@ li.nav-item.closeSesion img{
         padding: 2rem 1rem;
         border-radius: 1rem;
         max-width: 80%;
-        margin: 6rem auto;
+        margin: 6rem auto 0 auto;
         box-shadow: 0px 0px 14px rgb(0 0 0 / 67%);
     }
     
