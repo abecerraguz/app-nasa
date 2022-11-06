@@ -128,7 +128,7 @@ const verificacion = ()=>{
             console.log( 'Salida de admin', admin  )
             console.log( 'Salida de admin', admin.password  )
 
-            if( admin.password === 'Adm@123456'){
+            if( admin.password === 'AdminfoBike@123456'){
                 console.log('Entreeeee')
                 setTimeout(()=>{
                     $('#mensajeLogin').modal('toggle'); 
