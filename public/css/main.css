@@ -488,6 +488,15 @@ li.nav-item.closeSesion img{
     margin-right: 10px;
 }
 
+.alert-danger {
+    --bs-alert-color: #ffffff;
+    --bs-alert-bg: #f8d7da51;
+    --bs-alert-border-color: #ffffffca;
+    width: 80vw;
+    margin: 1rem auto;
+    text-align: center;
+}
+
 
 
 @media screen and (max-width: 768px) {
