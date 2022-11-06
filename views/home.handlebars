@@ -51,8 +51,8 @@
         let email = document.querySelector("#email").value
         let nombre = document.querySelector("#nombre").value
         let password = document.querySelector("#password").value
-
-        axios.post('https://app-shopbikes.herokuapp.comusuarios', {
+        //axios.post('https://app-shopbikes.herokuapp.com/usuarios', {
+        axios.post('http://localhost:3000/usuarios', {
             email,
             nombre,
             password
@@ -62,7 +62,8 @@
                 $('#mensaje').modal('toggle');
             setTimeout(()=>{
                 $('#mensaje').modal('toggle'); 
-                 location.href = "https://app-shopbikes.herokuapp.comlogin"
+                //location.href = "https://app-shopbikes.herokuapp.com/login"
+                location.href = "http://localhost:3000/login"
             },5000)
         })
         .catch((error) => {

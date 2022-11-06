@@ -170,20 +170,18 @@ UI.enviar.addEventListener('click', async(e)=>{
 })
 
 // Insert option de categoria 
-//axios.get('https://app-shopbikes.herokuapp.comcategorias')
-// https://app-shopbikes.herokuapp.com/
 axios.get('https://app-shopbikes.herokuapp.com/categorias')
+//axios.get('http://localhost:3000/categorias')
     .then( result =>{
         const categorias = result.data
         categorias.forEach( element => {
             category_id.innerHTML+= `<option value="${element.category_id}">${element.category_name}</option>`
         });
-    })
+})
 
 // Insert option tiendas
-// axios.get('https://app-shopbikes.herokuapp.comtiendas')
-// https://app-shopbikes.herokuapp.com/
-axios.get('https://app-shopbikes.herokuapp.com/tiendas')
+// axios.get('https://app-shopbikes.herokuapp.com/tiendas')
+axios.get('http://localhost:3000/tiendas')
     .then( result =>{
         const tiendas = result.data
         tiendas.forEach( element => {
@@ -192,9 +190,8 @@ axios.get('https://app-shopbikes.herokuapp.com/tiendas')
     })
 
 // Insert option marcas
-//axios.get('https://app-shopbikes.herokuapp.commarcas')
-// https://app-shopbikes.herokuapp.com/
 axios.get('https://app-shopbikes.herokuapp.com/marcas')
+//axios.get('http://localhost:3000/marcas')
     .then( result =>{
         const marcas = result.data
         marcas.forEach( element => {
@@ -206,6 +203,7 @@ UI.reset.addEventListener('click',(e)=>{
     e.preventDefault();
     //window.location.href = `https://app-shopbikes.herokuapp.com`
     window.location.href = `https://app-shopbikes.herokuapp.com`
+    //window.location.href = `http://localhost:3000`
 })
 
 // INICIO VALIDACION FORMULARIO DE REGISRARSE
@@ -296,8 +294,8 @@ buttonRegistrarse.addEventListener("click",(e)=>{
     let password = passwordInput.value
 
     if( nombre && apellido && email && celular && password ){
-       
         axios.post('https://app-shopbikes.herokuapp.com/usuarios', {
+        //axios.post('http://localhost:3000/usuarios', {
             nombre,
             apellido,
             email,
@@ -308,8 +306,9 @@ buttonRegistrarse.addEventListener("click",(e)=>{
             console.log(response.data);
                 $('#mensajeRegistrado').modal('toggle');
             setTimeout(()=>{
-                $('#mensajeRegistrado').modal('toggle'); 
+                $('#mensajeRegistrado').modal('toggle');
                 location.href = "https://app-shopbikes.herokuapp.com/login"
+                //location.href = "http://localhost:3000/login"
             },5000)
         })
         .catch((error) => {

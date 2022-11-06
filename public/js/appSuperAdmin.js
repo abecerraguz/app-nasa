@@ -29,6 +29,7 @@ const changeStatus = async( e ) => {
     let auth = e.checked ? 1 : 0;
     let id   = e.id
     await axios.put("https://app-shopbikes.herokuapp.com/usuario",{
+    //await axios.put("http://localhost:3000/usuario",{
         id,
         auth
     })
@@ -42,6 +43,7 @@ infoButton.forEach( element => {
             e.preventDefault();
             const email = e.target.name
             axios.get('https://app-shopbikes.herokuapp.com/getstaffs')
+            //axios.get('http://localhost:3000/getstaffs')
             .then(result =>{
                 const dataUsers = result.data
                 const dataUser = dataUsers.find( element => element.email == email )
@@ -78,6 +80,7 @@ guardarUsario.addEventListener('click', (e)=>{
     let store_id = 1
     let  manager_id = 1
     axios.put('https://app-shopbikes.herokuapp.com/editstaffs',
+    //axios.put('http://localhost:3000/editstaffs',
     {
         id,
         name,
@@ -200,8 +203,8 @@ buttonRegistrarse.addEventListener("click",(e)=>{
     console.log()
 
     if( nombre && apellido && email && celular && password ){
-       
         axios.post('https://app-shopbikes.herokuapp.com/usuarios', {
+        //axios.post('http://localhost:3000/usuarios', {
             nombre,
             apellido,
             email,
@@ -257,6 +260,7 @@ eliminarButton.forEach( element => {
                 })
                 console.log('XXXXX',idFinal)
                 axios.delete(`https://app-shopbikes.herokuapp.com/usuario/${idFinal}`)
+                //axios.delete(`http://localhost:3000/usuario/${idFinal}`)
                     .then( result =>{
                         console.log('Salida de result',result)
                         window.location.reload();

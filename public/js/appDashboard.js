@@ -21,10 +21,8 @@ infoButton.forEach( element => {
         e.preventDefault();
         const infoId = e.target.id
         const email = e.target.name
-        //axios.get('https://app-shopbikes.herokuapp.commarcas')
-        //https://app-shopbikes.herokuapp.com/
         axios.post('https://app-shopbikes.herokuapp.com/user',{
-        //  infoId,
+        //axios.post('http://localhost:3000/user',{
          email   
         })
         .then( result =>{
@@ -68,18 +66,14 @@ infoButton.forEach( element => {
                 })
             
                 if( selectCategoria != -1 && brandNameSelect != -1){
-            
-                    //axios.get('https://app-shopbikes.herokuapp.commarcas')
-                    //https://app-shopbikes.herokuapp.com/
                     axios.put('https://app-shopbikes.herokuapp.com/stock',{
+                    //axios.put('http:/localhost:3000/stock',{
                         idTienda,
                         infoId,
                         quantity
                     })
-            
-                    //axios.get('https://app-shopbikes.herokuapp.commarcas')
-                    //https://app-shopbikes.herokuapp.com/
                     axios.put('https://app-shopbikes.herokuapp.com/producto',{
+                    //axios.put('http://localhost:3000/producto',{
                         infoId,
                         nombreProducto,
                         brandNameSelect,

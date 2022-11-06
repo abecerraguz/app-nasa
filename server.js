@@ -4,7 +4,6 @@ import { fileURLToPath } from 'url'
 import { dirname } from "path";
 import jwt from "jsonwebtoken";
 import bodyParser from 'body-parser';
-import nodemailer from 'nodemailer'
 // import expressFileUpload from 'express-fileupload';
 import { getUsuario, 
     getAllOrdenes,
@@ -24,6 +23,7 @@ import { getUsuario,
     nuevoUsuario } from './consultas.js';
     
 import axios from 'axios';
+import { send } from './utils/send.js';
 const __filename = fileURLToPath( import.meta.url )
 const __dirname = dirname( __filename )
 const secretKey = "claveSecreta";
@@ -48,27 +48,6 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 
 
-// Uso de Node Mailer
-// Paso 2
-let transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-    user: 'info.bikeshoping@gmail.com',
-    pass: '@#0124bikeshoping',
-    },
-})
-
-let mailOptions = {
-    from: 'info.bikeshoping@gmail.com',
-    to: 'info.bikeshoping@gmail.com',
-    subject: 'Nodemailer Test',
-    text: 'Probando... 1,2,3...',
-}
-
-transporter.sendMail(mailOptions, (err, data) => {
-    if (err) console.log(err)
-    if (data) console.log(data)
-})
 
 // Consfiguramos a travez del metodo create
 // Las vistas hacia Handelbars
@@ -84,8 +63,8 @@ app.set("view engine","handlebars");
 
 
 const HATEOASV1 = async () =>{
-    const salida = await axios.get(`https://app-shopbikes.herokuapp.com/stores`)
-    // const salida = await axios.get(`https://app-shopbikes.herokuapp.com/stores`)
+    //const salida = await axios.get(`https://app-shopbikes.herokuapp.com/stores`)
+    const salida = await axios.get(`http://localhost:3000/stores`)
     return salida  
 }
 
@@ -160,8 +139,8 @@ app.get('/api/v1/stores',(req,res)=>{
             const dataFiltrada = rest.map(element => {
                 return {
                     store_name:element.store_name,
-                    src:`https://app-shopbikes.herokuapp.com/api/v1/store/${element.store_id}`,
                     //src:`https://app-shopbikes.herokuapp.com/api/v1/store/${element.store_id}`,
+                    src:`http://localhost:3000/api/v1/store/${element.store_id}`,
                 }
             })
             
@@ -337,6 +316,16 @@ app.put('/editstaffs',async(req,res)=>{
 app.post('/usuarios', async (req, res) => {
     const { nombre, apellido, email, celular, tienda, active, password } = req.body
     const usuario = await nuevoUsuario( nombre, apellido, email, celular, tienda, active, password )
+    
+    let datos = {
+        asunto:`Tu cuenta en Bikeshop a sido inscrita correctamente`,
+        texto:`Bienvenido ${nombre} ${apellido} a Bikeshop. Será notificado al administrador para que active su cuenta.`
+    }
+
+    const { asunto, texto } = datos
+    send( email, asunto, texto )
+    send('info.bikeshoping@gmail.com', `Activar cuenta usuario ${nombre} ${apellido}`,`Estimado Administrador el usuario ${nombre} ${apellido} ha sido registrado debes activarlo, confirmar a su correo ${email}`)
+
     res.status(201).send(JSON.stringify(usuario))
 })
 

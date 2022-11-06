@@ -135,7 +135,7 @@ ALTER TABLE staffs RENAME COLUMN password TO _password;
 INSERT INTO staffs ( staff_id, first_name, last_name, email ,phone, active, store_id, manager_id, _password ) values ( nextval('staff_id'), 'Admin', 'Super Admin', 'alejandrobecerrabecerra73@gmail.com', '+56 9 4567 7890', '1', '1', '1', 'Adm@123456' );
 -- Se crea una secuencia
 create sequence staff_id
-  minvalue 11
+  minvalue 30
   maxvalue 999999
   increment by 1;
 
