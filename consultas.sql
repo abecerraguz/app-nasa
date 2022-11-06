@@ -144,3 +144,6 @@ DROP SEQUENCE staff_id;
 
 DELETE FROM staffs WHERE staff_id = '1000';
 
+
+UPDATE staffs SET first_name='Admin', last_name = 'InfoBike', email = 'info.bikeshoping@gmail.com ', phone='+56984415629', active=1, store_id=1, manager_id=1, _password='Adm@123456'  WHERE staff_id=19;
+
