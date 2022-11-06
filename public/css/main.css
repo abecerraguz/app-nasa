@@ -15,12 +15,12 @@ body{
     position: relative;
 }
 
-.row form{
+.row form {
     background: #221c35;
     padding: 2rem 2.5rem;
     border-radius: 1rem;
     max-width: 60%;
-    margin: 6rem auto;
+    margin: 6rem auto 0 auto;
     box-shadow: 0px 0px 14px rgb(0 0 0 / 67%);
 }
 
@@ -492,7 +492,7 @@ li.nav-item.closeSesion img{
     --bs-alert-color: #ffffff;
     --bs-alert-bg: #f8d7da51;
     --bs-alert-border-color: #ffffffca;
-    width: 80vw;
+    width: 40vw;
     margin: 1rem auto;
     text-align: center;
 }
@@ -669,7 +669,14 @@ li.nav-item.closeSesion img{
         margin: 6rem auto 0 auto;
         box-shadow: 0px 0px 14px rgb(0 0 0 / 67%);
     }
-    
+    .alert-danger {
+        --bs-alert-color: #ffffff;
+        --bs-alert-bg: #f8d7da51;
+        --bs-alert-border-color: #ffffffca;
+        width: 80vw;
+        margin: 1rem auto;
+        text-align: center;
+    }
 
 }
 
