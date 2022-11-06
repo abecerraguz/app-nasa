@@ -120,7 +120,7 @@ const verificacion = ()=>{
             //console.log('Salida XC--->', result.config.data )
             const admin = JSON.parse(result.config.data)
             const token = result.data
-
+            console.log('Salida de admin--->',admin)
             $('#mensajeLogin').modal('toggle');
             sessionStorage.setItem('token', JSON.stringify(token) )
             
