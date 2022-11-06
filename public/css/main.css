@@ -652,7 +652,14 @@ li.nav-item.closeSesion img{
         border-bottom: 1px solid #ffffff4a;
     }
 
-
+    .row form{
+        background: #221c35;
+        padding: 2rem 1rem;
+        border-radius: 1rem;
+        max-width: 80%;
+        margin: 6rem auto;
+        box-shadow: 0px 0px 14px rgb(0 0 0 / 67%);
+    }
     
 
 }
