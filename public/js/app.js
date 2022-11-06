@@ -180,8 +180,8 @@ axios.get('https://app-shopbikes.herokuapp.com/categorias')
 })
 
 // Insert option tiendas
-// axios.get('https://app-shopbikes.herokuapp.com/tiendas')
-axios.get('http://localhost:3000/tiendas')
+axios.get('https://app-shopbikes.herokuapp.com/tiendas')
+//axios.get('http://localhost:3000/tiendas')
     .then( result =>{
         const tiendas = result.data
         tiendas.forEach( element => {

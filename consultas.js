@@ -3,7 +3,7 @@ const { Pool } = pg;
 
 const pool = new Pool({
     // Conección para produccion pero para local o Local
-    connectionString:process.env.DATABASE_production_URL ,
+    connectionString:process.env.DATABASE_URL,
     ssl:{
         rejectUnauthorized:false
     }
